@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" /> 
+    <link rel="stylesheet" href="./css/bind.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <script src="./js/jquery.min.js"></script>
+    <title>简易慧能</title>
+</head>
+<body>
+    <div id="bind">
+        <h1 class="title">
+            <a href="index.html"><span class="icon"></span></a>
+            简易慧能设备绑定
+        </h1>
+        <div class="ejectbind">
+            <p style="padding-top: 1.2rem;font-size: 0.28rem;">设备绑定:</p>
+            <div class="bindipt">
+                <span>设备号:</span>
+                <input type="text" class="ipt" style="padding-left: 10px;outline: none;-webkit-appearance: none; 
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0); ">
+            </div>
+            <div class="btn">绑定</div>
+        </div>
+        <div class="prompt prompt0" style="display: none;">
+            <div class="prompt-bnt">
+                <p class="prompt-title">提示</p>
+                <p class="prompt-content"></p>
+                <div class="prompt-btn">确认</div>
+            </div>
+        </div>
+        <div class="prompt prompt1" style="display: none;">
+            <div class="prompt-bnt">
+                <p class="prompt-title1">提示</p>
+                <p class="prompt-content1"></p>
+                <div class="prompt-btn1">
+                    <span class="btn1-cancel">取消</span>
+                    <span class="btn1-comfire">确认</span>
+                </div>
+            </div>
+        </div>
+        <div class="myload">
+            <div class="bindLoad">
+                <div class="content">
+                    <div class="img">
+                        <img src="./image/jyhnload.gif" mode=""></img>
+                    </div>
+                    <div class="text">
+                        等待同意中...
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    <script>
+        //进行跳转获取openid
+        let url_config = 'http://192.168.199.228:8989';
+            url_config = 'https://www.easeway.co';
+            url_config = 'http://29906e24h1.zicp.vip';
+        let wsurl_config = 'ws://www.easeway.co'
+            wsurl_config = 'ws://29906e24h1.zicp.vip'
+        //弹框状态
+        let Status = false;
+        //用于填写发送消息的输入框
+        var messageBox;
+        //用于显示消息的div容器
+        var messageLog;
+        //WebSocket对象
+        var socket;
+        //创建socket对象并绑定所有事件
+        function connect(openid) {
+            //创建socket对象
+            socket = new WebSocket(wsurl_config+'/webSocket/' + openid);
+            //监听所有的Web socket事件
+            socket.onopen = connectionOpen;
+            socket.onmessage = messageReceived;
+            socket.onerror = errorOccurred;
+            socket.onclose = connectionClosed;
+        }
+        //连接建立完毕事件响应
+        function connectionOpen(e) {
+            console.log(e,'<br>--- Socket连接成功 ---')
+        }
+        //消息接收事件响应
+        function messageReceived(e){
+            $(".myload").hide()
+            let data = JSON.parse(e.data)
+            if(data.code === 1){
+                Status = true
+                $(".prompt-content").html("设备绑定创建成功,请在app确认")
+            }else if(data.code === 0){
+                Status = false
+                $(".prompt-content").html(data.msg)
+            }
+            $(".prompt0").show()
+        }
+        //错误响应
+        function errorOccurred(e){
+            console.log(e,'萨达errorOccurred')
+        }
+        //消息关闭
+        function connectionClosed(e){
+            console.log(e,'萨达connectionClosed')
+        }
+        $(document).ready(function(){
+            
+            let openid = sessionStorage.getItem("openid")
+            
+            connect(openid);
+            
+            $(".btn").click(
+                 //获取已经绑定的设备
+                 function(){
+                    $(".prompt-content1").html("请在点击确认前打开app,需进行app的确认,进行完成微信的绑定")
+                    $(".prompt1").show()
+                 }
+            )
+            $(".btn1-cancel").click(function(){
+                $(".prompt1").hide()
+            })
+            $(".btn1-comfire").click(function(){
+                $(".prompt1").hide()
+                $(".myload").show()
+                let serialNumbers = $('.ipt').val();
+                $.ajax({
+                    url: url_config+"/wechat/publicBind", 
+                    data:JSON.stringify({openId:openid,serialNumber:serialNumbers}),
+                    type:"POST",
+                    dataType: "json",
+                    headers: { 
+                        'Content-Type': 'application/json;charset=UTF-8'  
+                    },
+                    success: function(res){
+                        console.log(res,'myres')
+                        if(res.errCode !== 1){
+                            $(".myload").hide()
+                        }
+                        
+                    }
+                })
+            })
+            $(".prompt-btn").click(function(){
+                if(Status){
+                    window.history.back(-1);
+                }else{
+                    $(".prompt0").hide()
+                }
+            })
+        });
+    </script>
+</body>
+</html>

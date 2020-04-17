@@ -1,0 +1,104 @@
+#bind{
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 2000;
+}
+#bind .title{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index:999;
+    font-size: 0.40rem;
+    width: 100%;
+    text-align: center;
+    height: 0.88rem;
+    line-height: 0.88rem;
+    background: #4a9587;
+    color: #fff;
+}
+.ejectbind{
+    padding: 0 0.2rem;
+    width: 100%;
+    height: 100vh;
+    background: #f2f2f2;
+    position: relative;
+}
+#bind .bindipt{
+    margin-top:0.2rem;
+    padding: 0.2rem;
+    height: 0.64rem;
+    line-height: 0.64rem;
+    background: #fff;
+    display: flex;
+    border-radius: 0.1rem;
+    overflow: hidden;
+}
+.bindipt span{
+    vertical-align: top;
+    font-size: 0.28rem;
+    padding: 0 0.2rem;
+}
+.bindipt input{
+    vertical-align: middle;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    border: 1px solid #f1f1f1;
+    outline: none;
+    flex: 1;
+    font-size: 0.28rem;
+}
+.ejectbind .btn{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #4a9587;
+    font-size: 0.4rem;
+    width: 100%;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    color: #fff;
+    text-align: center;
+}
+.title .icon{
+    background: url("../image/icon.png") no-repeat;
+    background-size: 100% 100%;
+    height: 0.4rem;
+    width: 0.4rem;
+    position: absolute;
+    left: 0.24rem;
+    top: 0.24rem;
+}
+.bindLoad{
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 101;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.2);
+}
+.bindLoad .text{
+    color: #fff;
+    padding-top: 20px;
+    text-align: center;
+    height: 25px;
+    line-height: 25px;
+    font-size: 15px;
+}
+.bindLoad .img{
+    width: 245px;
+    height: 84px;
+}
+.bindLoad .img img{
+    height: 100%;
+    width: 100%;
+}
+.myload{
+    display: none;
+}
+

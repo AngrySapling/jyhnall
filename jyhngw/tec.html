@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="./images/icon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/tec.css">
+    <script src="./js/jquery.min.js"></script>
+    <!--[if IE]>   
+
+        <script src=”http://html5shiv.googlecode.com/svn/trunk/html5.js”></script>   
+        
+        < ![endif]-->
+    <style>
+        .content{
+            display: flex;
+            padding: 20px 0.4rem;
+            min-height: calc(100vh - 285px);
+            background: #f2f2f2;
+        }
+        .content-item{
+            flex:1;
+            padding-left: 20px;
+            box-sizing: border-box;
+        }
+        .item{
+            width: 100%;
+            min-height: 100%;
+            background: #fff;
+            padding:0 20px;
+        }
+        .top-tip {
+            padding: 18px 0px;
+            padding-bottom: 10px;
+            width: 100%;
+            border-bottom: 1px solid #888888;
+            font-size: 18px;
+            position: relative;
+        }
+    </style>
+    <title>简易慧能</title>
+</head>
+<body>
+    <!-- 头部 -->
+    <header class="open">
+        <h1 class="logo">
+            <a href="#">
+                <img src="./images/logo.png" alt="">
+            </a> 
+        </h1>
+        <ul class="nav" >
+            <li class="nav-li"><a href="./index.html">首页</a></li>
+            <li class="nav-li"><a href="#">公司介绍</a></li>
+            <li class="nav-li"><a href="./app.html">手机APP</a></li>
+            <li class="nav-li"><a href="./tec.html?par=0&id=0&styleId=0">技术支持</a></li>
+            <li class="nav-li"><a href="#">我的客户端</a></li>
+        </ul>
+        <div class="burger">
+            <div class="burger-line1"></div>
+            <div class="burger-line2"></div>
+            <div class="burger-line3"></div>
+        </div>
+    </header>
+    <div class="content">
+        <div class="treebox">
+            <ul class="menu">
+                <li class="level1">
+                    <a href="#none"><em class="ico ico1"></em>配置相关<i class="down"></i></a>
+                    <ul class="level2">
+                        <li><a href="tec.html?par=0&id=0&styleId=0">基本设置</a></li>
+                        <li><a href="tec.html?par=0&id=1&styleId=1">需求场景</a></li>
+                    </ul>
+                </li>
+                <li class="level1">
+                    <a href="#none"><em class="ico ico2"></em>故障排查<i></i></a>
+                    <ul class="level2">
+                        <li><a href="tec.html?par=1&id=2&styleId=0">设备相关</a></li>
+                        <!-- <li><a href="tec.html?par=1&id=1">app相关</a></li> -->
+                    </ul>
+                </li>
+                <li class="level1">
+                    <a href="#none"><em class="ico ico3"></em>购买相关<i></i></a>
+                    <ul class="level2">
+                        <li><a href="tec.html?par=2&id=3&styleId=0">导航选项</a></li>
+                    </ul>
+                </li>
+                <!-- <li class="level1">
+                    <a href="#none"><em class="ico ico4"></em>售后政策<i></i></a>
+                    <ul class="level2">
+                        <li><a href="tec.html?par=3&id=0">保修相关</a></li>
+                    </ul>
+                </li> -->
+                <li class="level1">
+                    <a href="#none"><em class="ico ico5"></em>产品相关<i></i></a>
+                    <ul class="level2">
+                        <li><a href="tec.html?par=3&id=4&styleId=0">简易提示</a></li>
+                        <li><a href="tec.html?par=3&id=5&styleId=1">产品概要</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="contentItem">
+            
+        </div>
+    </div>
+    <!-- 底部介绍 -->
+    <footer class="footer">
+        <div class="warp">
+            <ul class="footer-list">
+                <li class="footer-nav">
+                    <h5>合作伙伴</h5>
+                    <!--<p>简易慧能</p>-->
+                    <!--<p>简易慧能</p>-->
+                    <!--<p>简易慧能</p>-->
+                </li>
+                <li class="footer-nav">
+                    <h5>关于我们</h5>
+                    <p>联系电话：13436814745</p>
+                    <p>邮箱：jyhn@easeway.co</p>
+                </li>
+                <li class="footer-nav">
+                    <h5>关注我们</h5>
+                    <img src="./images/wechat.jpg" alt="">
+                </li>
+                <li class="footer-nav"></li>
+                <li class="footer-nav"></li>
+            </ul>
+            <div class="bottom">
+                <div class="bottom1">
+                    <a spm-d="1" href="#">关于简易</a>
+                    <i>|</i>
+                    <a spm-d="2" href="#">后台管理</a>
+                    <i>|</i>
+                    <a spm-d="3" href="#">联系我们</a>
+                    <i>|</i>
+                    <a spm-d="4" href="#">帮助中心</a>
+                    <i>|</i>
+                    <a spm-d="5" href="./app.html">app下载</a>
+                </div>
+                <div class="bottom1">
+                    <span>京ICP备19057231号-1</span>
+                    <i class="o_xs-hide ">|</i>
+                    <span>Copyright ©2019 简易慧能 版权所有</span>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <script src="./js/easing.js"></script>
+    <script src="./js/template.js"></script>
+    <script id="Tab" type="text/html">
+        {{each list as value index}}
+        {{if index == id}}
+        <div class="item">
+            <div class="top-tip">
+                <span>{{value.title[0]}}</span>
+                    >   
+                <span>{{value.title[1]}}</span>
+            </div>
+            {{each value.list as value1 index1}}
+            <div>
+                <h5 class="title">{{value1.title}}</h5>
+                <div>
+                    {{each value1.text as item index2}}
+                        <p class="text">{{item}}</p>
+                    {{/each}}
+                </div>
+                
+            </div>
+            {{/each}}
+        </div>
+        {{/if}}
+        {{/each}}
+    </script>
+    <script>
+        //等待dom元素加载完毕.
+        $(function(){
+            console.log(window.location.search )
+            let search = window.location.search.slice(1)
+            let par = search.split("&")[0].split("=")[1]
+            let id = search.split("&")[1].split("=")[1]
+            let styleid = search.split("&")[2].split("=")[1]
+            $(".level1").eq(par).addClass('current').find('i').addClass('down').parent().next().slideDown('slow','easeOutQuad')
+            $(".level1").eq(par).css({ background: "#279e96"})
+            console.log($(".level1").eq(par).children('.level2').children("li").eq(id))
+            $(".level1").eq(par).children('.level2').children("li").eq(styleid).children("a").addClass('color')
+            $(".treebox .level1>a").click(function(){
+                $(".level1").eq(0).css({ background:"none"})
+                $(this).addClass('current')   //给当前元素添加"current"样式
+                .find('i').addClass('down')   //小箭头向下样式
+                .parent().next().slideDown('slow','easeOutQuad')  //下一个元素显示
+                .parent().siblings().children('a').removeClass('current')//父元素的兄弟元素的子元素去除"current"样式
+                .find('i').removeClass('down').parent().next().slideUp('slow','easeOutQuad');//隐藏
+                return false; //阻止默认时间
+            });
+            $(".level2").click(function(){
+                $(this).addClass('current')   //给当前元素添加"current"样式
+                .find('i').addClass('down')   //小箭头向下样式
+                .parent().next().slideDown('slow','easeOutQuad')  //下一个元素显示
+                .parent().siblings().children('a').removeClass('current')//父元素的兄弟元素的子元素去除"current"样式
+                // .find('i').removeClass('down').parent().next().slideUp('slow','easeOutQuad');//隐藏
+                // return false; //阻止默认时间
+            });
+            var data = [{
+                title: ['配置相关','基本设置'],
+                id:0,
+                list: [{
+                    title:'1.在主屏点击 主菜单按钮 进入【主菜单】，选择【药盒管理】'
+                },{
+                    title:'2.选择药盒，填入相关信息，将条码对准扫描红光10cm,或点击 获取药品名称，完成后请点击【保存】'
+                },{
+                    title:'3.取下机器右侧加药板，使用加药勺将药品加入， 盖好加药板'
+                },{
+                    title:'4.继续选择药盒，可添加其它药品，重复步骤2和3，完成后点击【返回】回到【主菜单】'
+                },{
+                    title:'5.选择【服药计划】，选择药盒,填入相关信息，完成后请点击【保存】'
+                },{
+                    title:'6.继续选择药盒，重复步骤6，完成后点击【返回】或【主页面】'
+                },]
+            },{
+                title: ['配置相关','需求场景'],
+                id:1,
+                list: [{
+                    title:'1.查看所有药盒信息',
+                    text:['点击【主屏】任意位置可总览药盒整体信息，可切换前后页']
+                },{
+                    title:'2.更改应急联系人',
+                    text:['进入【主菜单】后选择【用户信息】，可以变更相关信息，更改后请保存']
+                },{
+                    title:'3.更改药品余量',
+                    text:['【药盒管理】中，选择需要更改的药盒，点击【清空换药】，选择需要清空的内容后点击【确定】']
+                },{
+                    title:'4.服用不能放入本机的药品',
+                    text:['其它服药信息或其它定时提醒，可在【提醒设置】中输入']
+                },{
+                    title:'5.音量和屏保',
+                    text:['可在【提醒设置】中调整']
+                },{
+                    title:'6.可在【提醒设置】中调整',
+                    text:['长按白色时间框中的时间可删除该时间段']
+                },{
+                    title:'7.外出',
+                    text:['在【主菜单】选择【外出设置】，输入返回的日期和时间，点击【保存】']
+                },{
+                    title:'8.计划外服药',
+                    text:['在【主菜单】选择【临时取药】，调整所需剂量，勾选药品， 点击【取消】，药品配， 取完成后，请留意屏幕上的信息']
+                },{
+                    title:'9.停药',
+                    text:['在【主菜单】选择【药盒管理】，点击需要停药的药盒，取消勾选“长期服药”，也可填入“服用天数”，此天数以自然日计算，到达服药天数后将自动停药']
+                },{
+                    title:'10. 外出计划变更',
+                    text:['在【主菜单】选择【外出设置】，提前回归，点击 【取消外出】，如需延期，请更改返回时间，完成后点击取 消 外出【保存】']
+                },{
+                    title:'11.更换语言',
+                    text:['在【主菜单】选择【状态设置】，点击【恢复出厂】']
+                },]
+            },{
+                title: ['故障排查','设备相关'],
+                id:2,
+                list: [{
+                    title:'1.开机后没有提示音，屏幕没有点亮',
+                    text:['请检查电源是否正常连接，是否打开电源开关']
+                },{
+                    title:'2.没有语音提示',
+                    text:['请在提醒设置中，勾选语音提示，并调节音量，点击左上方喇叭按钮测试声音']
+                },{
+                    title:'3.不能取出药品药品',
+                    text:['请检查药盒是否有药，是否粘连；检查吸头是否松动或破裂并更换']
+                },{
+                    title:'4.条码无法识别',
+                    text:['在【药盒管理】中点击扫描按钮，检查是否有红光，将药盒上69开头的条码对准扫描头']
+                },]
+            },{
+                title: ['购买相关','购买步骤'],
+                id:2,
+                list: []
+            },{
+                title: ['产品相关','简易提示'],
+                id:2,
+                list: [{
+                    title:'1.本品适用于有正常思维能力的长期服药（包括保健品）人群'
+                },{
+                    title:'2.请将本品放置于稳固的平面，确保环境温湿度相对稳定，避免阳光直射'
+                },{
+                    title:'3.本产品需要连接互联网使用；'
+                },{
+                    title:'4.药品仅适用于片剂、胶囊、丸药且不易粘连和变形的药种，放入药品前，请仔细甄别药品是否适合使用本机；'
+                },{
+                    title:'5.药品大小为直径在3-20毫米之间，可通过测药孔判断是否符合规格；工作温度建议在0-30摄氏度，湿度在20-70%，湿度过高，请自行准备干燥剂，此指标并非药品指标；'
+                },{
+                    title:'6.信息以用户输入为准，本产品不负责核定用户输入信息的真实性；'
+                },{
+                    title:'7.自动配药完成后，请核对检查后再服用，放回药杯时请确保已清空；'
+                },{
+                    title:'8.请保持电源连接稳定，断电可能会导致部分数据丢失；'
+                },{
+                    title:'9.携带本机出行时，建议取出所有药品并妥善保存；'
+                },]
+            },{
+                title: ['产品相关','产品概要'],
+                id:2,
+                list: [{
+                    title:'1.规格',
+                    text:['1.长度：194.00毫米×90.00毫米×28.00毫米','2.重量：421 克']
+                },{
+                    title:'2.接口',
+                    text:['1.1个电源端口',' 2.1个复位按钮']
+                },{
+                    title:'3.功能',
+                    text:[
+                        '1.内置无线网：支持  ',
+                        '  2.内置温湿度传感器：支持温湿度 ',
+                        ' 3.自助取药：支持定时取药 ',
+                        '  4.外出取药：支持模式设置并取药  ',
+                        ' 5.远程提醒：支持取药服药提醒']
+                },{
+                    title:'4.工作环境',
+                    text:['1.工作温度：0-30℃ ',
+                    ' 2.工作湿度：20%-70%RH ',
+                    ' 3.药品大小：3-20mm']
+                },{
+                    title:'5.配件',
+                    text:['1.电源适配器']
+                },{
+                    title:'5.保修信息',
+                    text:['1.主机保修一年 ',' 2.配件保修一年']
+                }]
+            }]
+            let myData = {
+                list:data,
+                id:id,
+                par:par
+            }
+            var html = template("Tab",myData)
+            document.getElementById('contentItem').innerHTML = html;
+        })
+    </script>
+    <script src="./js/common.js"> </script>
+</body>
+</html>

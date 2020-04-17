@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>简易慧能</title>
+</head>
+<body>
+        <script src="./js/jquery.min.js"></script>
+    <script>
+         $(document).ready(function(){
+            let url_config = 'http://192.168.199.228:8989';
+            url_config = 'https://www.easeway.co';
+            //http://www.easeway.co/WeixinServlet
+            let REDIRECT_URI = window.location.href
+            if(window.location.search){
+                let redirect_search = window.location.search.slice(1)
+                let codes = redirect_search.split('&')[0].split('=')[1]
+                console.log(codes,'code')
+                $.ajax({
+                    url: url_config+"/wechat/weiXinPublicLogin", 
+                    data:JSON.stringify({code:codes}),
+                    type:"POST",
+                    dataType:"json",
+                    headers: { 
+                        'Content-Type': 'application/json;charset=UTF-8'  
+                    },
+                    success: function(res){
+                       let openid = res.data.openId;
+                       if(openid){
+                        sessionStorage.setItem("openid", openid)
+                        window.location.href = "hostinfo.html"
+                       }
+                       
+                    }
+                })
+                
+            }else{
+                window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxef6184b9e1e611dd&redirect_uri="+REDIRECT_URI+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect"
+            }
+         })
+    </script>
+</body>
+</html>
