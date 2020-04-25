@@ -49,16 +49,15 @@
     font-size: 0.4rem;
 }
 #jyhnbd .hardware .unbind{
-    position: absolute;
+    /* position: absolute;
     right: 0;
-    top: 0;
-    width: 0.6rem;
-    height: 1.4rem;
+    top: 0; */
+    height: 1rem;
     background: red;
     color: #fff;
-    padding:0 0.2rem;
-    font-size: 0.3rem;
-    line-height: 1.4rem;
+    padding:0 0.14rem;
+    font-size: 0.28rem;
+    line-height: 1rem;
 }
 .box{
     display: none;

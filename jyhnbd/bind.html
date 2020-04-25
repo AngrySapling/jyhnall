@@ -40,6 +40,13 @@
                 </div>
             </div>
         </div>
+        <div class="prompt prompt2" style="display: none;">
+            <div class="prompt-bnt">
+                <p class="prompt-title">提示</p>
+                <p class="prompt-content2"></p>
+                <div class="prompt-btn">确认</div>
+            </div>
+        </div>
         <div class="myload">
             <div class="bindLoad">
                 <div class="content">
@@ -57,11 +64,10 @@
     </div>
     <script>
         //进行跳转获取openid
-        let url_config = 'http://192.168.199.228:8989';
-            url_config = 'https://www.easeway.co';
             url_config = 'http://29906e24h1.zicp.vip';
-        let wsurl_config = 'ws://www.easeway.co'
-            wsurl_config = 'ws://29906e24h1.zicp.vip'
+            url_config = 'https://www.easeway.co';
+        let wsurl_config = 'wss://www.easeway.co'
+            // wsurl_config = 'wss://29906e24h1.zicp.vip'
         //弹框状态
         let Status = false;
         //用于填写发送消息的输入框
@@ -106,11 +112,8 @@
             console.log(e,'萨达connectionClosed')
         }
         $(document).ready(function(){
-            
             let openid = sessionStorage.getItem("openid")
-            
             connect(openid);
-            
             $(".btn").click(
                  //获取已经绑定的设备
                  function(){
@@ -120,6 +123,7 @@
             )
             $(".btn1-cancel").click(function(){
                 $(".prompt1").hide()
+                
             })
             $(".btn1-comfire").click(function(){
                 $(".prompt1").hide()
@@ -137,12 +141,15 @@
                         console.log(res,'myres')
                         if(res.errCode !== 1){
                             $(".myload").hide()
+                            $(".prompt-content2").html(res.errMsg)
+                            $(".prompt2").show()
                         }
                         
                     }
                 })
             })
             $(".prompt-btn").click(function(){
+                $(".prompt2").hide()
                 if(Status){
                     window.history.back(-1);
                 }else{

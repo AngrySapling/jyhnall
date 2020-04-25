@@ -40,6 +40,9 @@
     font-size: 0.28rem;
     padding: 0 0.2rem;
 }
+.unbind{
+    font-size: 14px;
+}
 .bindipt input{
     vertical-align: middle;
     height: 0.6rem;

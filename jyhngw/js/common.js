@@ -21,7 +21,6 @@
     var docEl = doc.documentElement;
     
     let width = $(".swiper-container").width()
-    $(".swiper-container").height(width/3)
     resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
     recalc = function (wid) {
         $('.nav').attr('style', '')
@@ -37,7 +36,7 @@
             $(".pro-menu-list").eq(1).children().css({"display":"none",color:"#969696"})
             $(".spec").children().css({"display":"none"})
             $(".goods").children().css({"display":"block"})
-            $(".swiper-container").height(wid / 2.0)
+            $(".swiper-container").height(wid / 2)
             docEl.style.cssText = 'font-size:' + 100 * (clientWidth / 750) + 'px !important';
         } else if (clientWidth <= 1100 && clientWidth > 750) {
             $(".swiper-container").height(wid / 2.6)

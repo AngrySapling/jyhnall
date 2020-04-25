@@ -57,6 +57,15 @@
     </div>
     <script>
         $(document).ready(function(){
+            var isPageHide = false;
+            window.addEventListener('pageshow', function () {
+                    if (isPageHide) {
+                        window.location.reload();
+                    }
+            });
+            window.addEventListener('pagehide', function () {
+                    isPageHide = true;
+            });
             //进行跳转获取openid
             let url_config = 'http://192.168.199.228:8989';
             url_config = 'https://www.easeway.co';
@@ -83,8 +92,6 @@
                         }else{
                             $(".hardware").hide()
                             $(".unbindmsg").show()
-                            // $(".prompt-content").html(res.errMsg)
-                            // $(".prompt").show()
                         }
                     }
                 })
