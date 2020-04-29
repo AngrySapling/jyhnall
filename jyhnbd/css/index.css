@@ -122,3 +122,34 @@
 .unbindmsg img{
 
 }
+.bindLoad{
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 101;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.2);
+}
+.bindLoad .text{
+    color: #fff;
+    padding-top: 20px;
+    text-align: center;
+    height: 25px;
+    line-height: 25px;
+    font-size: 15px;
+}
+.bindLoad .img{
+    width: 245px;
+    height: 84px;
+}
+.bindLoad .img img{
+    height: 100%;
+    width: 100%;
+}
+.myload{
+    display: block;
+}

@@ -27,7 +27,7 @@
         </div>
         
         <div class="box">
-            <div class="playunbind">
+            <div class="playunbind" >
                 <div class="eject">
                     <p class="eje-title">提示</p>
                     <p class="eje-content">确认解除绑定?</p>
@@ -45,7 +45,7 @@
                 <div class="prompt-btn">确认</div>
             </div>
         </div>
-        <div class="loading">
+        <!-- <div class="loading">
             <div class="container">
                 <div class="item-1"></div>
                 <div class="item-2"></div>
@@ -53,10 +53,23 @@
                 <div class="item-4"></div>
                 <div class="item-5"></div>
             </div>
+        </div> -->
+        <div class="myload">
+            <div class="bindLoad">
+                <div class="load-content">
+                    <div class="img">
+                        <img src="./image/jyhnload.gif" mode=""></img>
+                    </div>
+                    <div class="text">
+                        loading...
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script>
         $(document).ready(function(){
+            $(".myload").show()
             var isPageHide = false;
             window.addEventListener('pageshow', function () {
                     if (isPageHide) {
@@ -84,13 +97,13 @@
                         'Content-Type': 'application/json;charset=UTF-8'  
                     },
                     success: function(res){
-                        console.log(res,999)
+                        $(".myload").hide()
                         if(res.errCode === 1){
                             $(".code").html(res.data.serialNumber)
                             $(".hardware").show()
                             $(".unbindmsg").hide()
                         }else{
-                            $(".hardware").hide()
+                                
                             $(".unbindmsg").show()
                         }
                     }
@@ -102,6 +115,7 @@
             })
             //点击解除绑定
             $(".unbind").click(function(){
+                console.log("解绑")
                 $(".box").show()
             })
             //点击确认与取消
@@ -112,6 +126,8 @@
             $(".btn li").eq(1).click(function(){
                 //点击解绑
                 let openid = sessionStorage.getItem("openid")
+                $(".hardware").hide()
+                $(".myload").show()
                 $.ajax({
                     url: url_config+"/wechat/publicUnBind", 
                     data:JSON.stringify({openId:openid}),
@@ -127,6 +143,7 @@
                         }else{
                             $(".prompt-content").html(res.errMsg)
                             $(".prompt").show()
+                            $(".hardware").show()
                         }
                     }
                 })

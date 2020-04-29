@@ -66,7 +66,7 @@
 }
 .f-left h2{
     font-size:0.40rem;
-    line-height: 50px;
+    line-height: 0.8rem;
     font-weight: 400;
 }
 .f-left p{
@@ -74,7 +74,7 @@
     line-height: 1.8;
 }
 .f-code{
-    padding-left: 100px;
+    padding-left: 1rem;
     width: 5.6rem;
     margin-top: 2.5rem;
     overflow: hidden;
@@ -121,6 +121,7 @@
     }
     .f-right h2{
         line-height: 0.8rem;
+        font-size: 0.4rem;
     }
     .f-left{
         padding: 0 0.2rem;
@@ -129,7 +130,7 @@
     }
     .f-left h2{
         font-size:0.3rem;
-        line-height: 45px;
+        line-height: 0.8rem;
     }
     .f-code{
         padding:0px 0.2rem;
