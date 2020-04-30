@@ -20,6 +20,7 @@
                 <span>设备号:</span>
                 <input type="text" class="ipt" style="padding-left: 10px;outline: none;-webkit-appearance: none; 
                 -webkit-tap-highlight-color: rgba(0, 0, 0, 0); ">
+                <span class="icon"><img src="./image/scan.png" alt=""></span>
             </div>
             <div class="btn">绑定</div>
         </div>
@@ -63,6 +64,19 @@
         
     </div>
     <script>
+        
+    function randomString(len) {
+        len = len || 32;
+        /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+        var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';    
+        var maxLen = $chars.length;
+        var str = '';
+        for (i = 0; i < len; i++) {
+            str += $chars.charAt(Math.floor(Math.random() * maxLen));
+        }
+        return str;
+    }
+    console.log(randomString())
         //进行跳转获取openid
             url_config = 'http://29906e24h1.zicp.vip';
             url_config = 'https://www.easeway.co';
@@ -112,6 +126,16 @@
             console.log(e,'萨达connectionClosed')
         }
         $(document).ready(function(){
+            // let result = await ADR.jsSdk();
+            // Toast.clear();
+            wx.config({
+                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: result.AppID, // 必填，公众号的唯一标识
+                timestamp: result.timestamp, // 必填，生成签名的时间戳
+                nonceStr: result.nonceStr, // 必填，生成签名的随机串
+                signature: result.signature,// 必填，签名
+                jsApiList: ['getLocation'] // 必填，需要使用的JS接口列表
+            });
             let openid = sessionStorage.getItem("openid")
             connect(openid);
             $(".btn").click(
