@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="./images/icon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/buy.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/ladda-themeless.min.css">
+    <link rel="stylesheet" href="./css/searchorder.css">
+    <title>简易慧能</title>
+    <!--[if IE]>   
+        <script src=”http://html5shiv.googlecode.com/svn/trunk/html5.js”></script>   
+    < ![endif]-->
+</head>
+<body>
+    <!-- 头部 -->
+    <header class="open">
+        <p class="back">
+            返回官网 
+        </p>
+    </header>
+    
+    <div id="myAlert2" class="alert alert-warning">
+        <!-- <a href="#" class="close" data-dismiss="alert">&times;</a> -->
+        <strong>ERR！</strong><span class="errText"></span>
+    </div>
+    <!-- 购买 -->
+    <div class="buy">
+        <div class="alert alert-success" role="alert">
+            <div class="alert-content">
+                <form id="dataForm">
+                    <div class="form-group row">
+                        <label for="exampleInputPassword1" class="col-sm-3 col-form-label"><span class="label-sp1">*</span>手机号</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="phoneNumber" id="exampleInputPassword1">
+                            <small id="emailHelp"  data-toggle="phoneNumber" class="form-text text-muted">请输入正确的手机号</small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputPassword1"  class="col-sm-3 col-form-label"><span class="label-sp1">*</span>验证码</label>
+                        <div  class="col-sm-9">
+                            <div style="display: flex;">
+                                <input type="text" disabled class="form-control phoneCode" name="phoneCode" id="exampleInputPassword1" style="flex: 1;max-width:100px;">
+                                <div  style="flex: 3;">
+                                    <button class="btn btn-primary getCode ladda-button" data-style="expand-right" name="getCode"  style="float: right;"><span class="ladda-label ladda-code">获取验证码</span></button>
+                                </div>
+                            </div>
+                            <small id="emailHelp" data-toggle="phoneCode" class="form-text text-muted" >请输入验证码</small>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary searchOrder btn-search ladda-button" οnclick="submitForm()"   data-style="expand-right"><span class="ladda-sure">查询</span></button>
+                </form>
+            </div>
+        </div>
+        <div class="searchorder" id="searchorder">
+            
+        </div>
+    </div>
+        
+    </div>
+    <!-- 底部介绍 -->
+    <footer class="footer">
+        <div class="warp">
+            <div class="bottom">
+                <div class="bottom1">
+                    <a spm-d="1" href="./introduce.html">关于简易</a>
+                    <i>|</i>
+                    <a spm-d="2" href="https://www.easeway.co/jyhnadmin/index.html">后台管理</a>
+                    <i>|</i>
+                    <!-- <a spm-d="3" href="#">联系我们</a>
+                    <i>|</i> -->
+                    <a spm-d="4" href="./tec.html?par=1&id=2&styleId=0">帮助中心</a>
+                    <i>|</i>
+                    <a spm-d="5" href="./app.html">app下载</a>
+                </div>
+                <div class="bottom1">
+                    <span>京ICP备19057231号-1</span>
+                    <i class="o_xs-hide ">|</i>
+                    <span>Copyright ©2019 简易慧能 版权所有</span>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <script src="./js/template.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/spin.min.js"></script>
+    <script src="./js/ladda.min.js"></script>
+    <script id="Tab" type="text/html">
+        <ul class="list-group">
+            {{each list as value index}}
+            <li class="list-group-item"><!-- col-lg-3 col-md-4  col-sm-6 .col-sx-12 -->
+                <div class="row justify-content-md-left item-top" style="padding: 0.4rem;">
+                    <div class="col-sm-6 col-sx-12">
+                        <p class="li">
+                            <span class="sp-title">下单时间:</span>
+                            <span class="sp-content">{{value.customerCreateTime}}</span>
+                        </p>
+                    </div>
+                    <div class="col-sm-6 col-sx-0">
+                        <p >
+                        </p>
+                    </div>
+                    <div class="col-sm-6 col-sx-12">
+                        <p class="li">
+                            <span class="sp-title">订单编号:</span>
+                            <span class="sp-content">No.{{value.orderNo}}</span>
+                        </p>
+                    </div>
+                    <div class="col-sm-6 col-sx-12">
+                        <p class="li">
+                            <span class="sp-title">订单状态:</span>
+                            <span class="sp-content">{{value.orderStatus}}</span>
+                        </p>
+                    </div>
+                    <div class="col-sm-6 col-sx-12">
+                        <p class="li">
+                            <span class="sp-title">快递信息:</span>
+                            <span class="sp-content">{{value.ExpressType}}</span>
+                        </p>
+                    </div>
+                    <div class="col-sm-6 col-sx-12">
+                        <p class="li">
+                            <span class="sp-title">快递单号:</span>
+                            <span class="sp-content">{{value.ExpressCode}}</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="row justify-content-md-left">
+                    <div class="col-sx-12 col-sm-6 left-content" >
+                        <div class="content-left">
+                            <p class="li">
+                                <span class="sp-title">姓名:</span>
+                                <span class="sp-content">{{value.name}}</span>
+                            </p>
+                            <p class="li">
+                                <span class="sp-title">联系方式:</span>
+                                <span class="sp-content">{{value.phoneNumber}}</span>
+                            </p>
+                            <p class="li">
+                                <span class="sp-title">地址:</span>
+                                <span class="sp-content">{{value.region+','+value.detailedAddress}}</span>
+                            </p>
+                            <p class="li">
+                                <span class="sp-title">邮编:</span>
+                                <span class="sp-content">{{value.postalCode}}</span>
+                            </p>
+                        </div>
+                    </div>
+                    <ul class="col-sx-12 col-sm-6" style="padding: 0;">
+                        <div class="content-right">
+                            <li class="title">
+                                <p>商品型号</p>
+                                <p>{{value.productModel}}</p> 
+                            </li>
+                            <li class="title">
+                                <p >商品数量</p>
+                                <p>{{value.buyNumber}}</p>
+                            </li>
+                        </div>
+                        
+                    </ul>
+                    <!-- col-lg-3 col-md-4  col-sm-6 .col-sx-12 -->
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+    </script>
+    <script>
+        $(function(){
+            let identification = "",isShowCode = 0,params = {}
+            $(".searchOrder").on("click",function(event){
+                event.preventDefault();
+            })
+            Ladda.bind( '.btn-search', {
+                callback: function( instance ) {
+                    //获取表单数据
+                    let formData = $('#dataForm').serialize()
+                    let data = decodeURIComponent(formData).split("&")
+               
+                    event.preventDefault();
+                    //整理表单数据
+                    let msg = data.map(res=>{
+                        let resArr = res.split("=")
+                        let obj = {}
+                        let propname = resArr[0]
+                        obj[propname] = resArr[1]
+                        return obj
+                    })
+               
+                    let isReq = 0;obj = {}
+                    msg.forEach(res=>{
+                        obj = Object.assign({},obj,res)
+                    })
+                    obj.phoneCode = obj.phoneCode?obj.phoneCode:''
+                    //校验表单数据
+                    for(let i in obj){
+                        if(!obj[i] && i !== 'postCode'){
+                            $(`[data-toggle="${i}"]`).show()
+                            isReq++
+                        }else{
+                            $(`[data-toggle="${i}"]`).hide()
+                            if(i === 'phoneNumber' && !(/^1[3456789]\d{9}$/.test(obj[i]))){
+                                $(`[data-toggle="${i}"]`).html('请输入正确手机号')
+                                $(`[data-toggle="${i}"]`).show()
+                                isReq++
+                            }
+                        }
+                    }
+                    //判断并发送表单数据
+                    if(!isReq){
+                        let msgObj = {}
+                        msg.forEach(res=>{
+                            msgObj = Object.assign({},msgObj,res)
+                        })
+                        params = {
+                            areaCode:"+86",
+                            phoneNumber:msgObj.phoneNumber,
+                            phoneCode:msgObj.phoneCode,
+                            identification:identification
+                        }
+                        //进行请求
+                        reqSearch(instance,params)
+                    }else{
+                        console.log('不提交')
+                        instance.stop();
+                    } 
+                    
+                }      
+            });
+            //发送验证码
+            Ladda.bind( '.getCode', {
+                callback: function( instance ) {
+                    var progress = 0;
+                    progress = Math.min( progress + Math.random() * 0.1, 1 );
+                    instance.setProgress( progress );
+                    event.preventDefault();
+                    if(isShowCode){
+                        console.log('停止') 
+                        instance.stop();
+                        return
+                    }
+                    let phoneValue =  $("input[ name='phoneNumber']").val()
+                    if(!(/^1[3456789]\d{9}$/.test(phoneValue))){ 
+                        console.log("这是错误内容")
+                        instance.stop();
+                        $(`[data-toggle="phoneNumber"]`).html('请输入正确手机号')
+                        $(`[data-toggle="phoneNumber"]`).show()
+                    }else{
+                        $(`[data-toggle="phoneNumber"]`).hide()
+                        identification = String(new Date().getTime())
+                        progress = Math.min( progress + Math.random() * 0.1, 1 );
+                        instance.setProgress( progress );
+                        $.ajax({
+                            type: "POST",
+                            url: "https://www.easeway.co/app/getPhoneCode",
+                            data: JSON.stringify({areaCode:"+86",phoneNumber:phoneValue,identification}),
+                            async:true,
+                            contentType: "application/json;charset=UTF-8",
+                            dataType: "json",
+                            success:function(res){
+                                $('.phoneCode').removeAttr('disabled')
+                                instance.stop();
+                                isShowCode = 120
+                                $(".ladda-code").html(isShowCode)
+                                let isTime = setInterval(function(){
+                                    isShowCode--
+                                    if(isShowCode > 0){
+                                        $(".ladda-code").html(isShowCode)
+                                    }else{
+                                        isShowCode = 0
+                                        $(".ladda-code").html('获取验证码')
+                                        clearInterval(isTime)
+                                    }
+                                },1000)
+                            },
+                            error:function (err) {
+                                instance.stop();
+                                $("#myAlert2").show();
+                                $(".errText").html("请求错误")
+                                setTimeout(function(){
+                                    $("#myAlert2").hide();
+                                },3000)
+                            }
+                        });
+                    }
+                }
+            });
+            //获取手机验证码
+            $(".getCode").on("click",function(){
+                event.preventDefault();
+            })
+            //监听输入框
+            $(".form-control").bind("input propertychange",function(e){
+                // console.log(e.target.name,e.target.value)
+                let name = e.target.name
+                let value = e.target.value
+                switch (name) {
+                    case 'phoneNumber':
+                        if((/^1[3456789]\d{9}$/.test(value))){ 
+                            $(`[data-toggle="phoneNumber"]`).hide()
+                        } 
+                        break;
+                    default:
+                        if(value){
+                            $(`[data-toggle="${name}"]`).hide()
+                        }
+                        break;
+                }
+            })
+            $(".back").on("click",function(){
+                window.location.href = "./index.html"
+            })
+        })
+        
+        function reqSearch(instance,params){
+            console.log(222)
+            var progress = 0;
+            progress = Math.min( progress + Math.random() * 0.1, 1 );
+            instance.setProgress( progress );
+            $.ajax({
+                type: "POST",
+                url: "https://www.easeway.co/manage/customerReserveMessages",
+                data: JSON.stringify(params),
+                async:true,
+                contentType: "application/json;charset=UTF-8",
+                dataType: "json",
+                success:function(res){
+                    instance.stop();
+                    console.log(res,'res')
+                    if(res.errCode === 1){
+                        let data = res.data
+                        data.forEach(res=>{
+                            res.customerCreateTime = formatDate(new Date(res.customerCreateTime))
+                            res.orderStatus = res.orderStatus === 1?'已完成':'未完成'
+                        })
+                        let myData = {
+                            list:data
+                        }
+                        var html = template("Tab",myData)
+                        document.getElementById('searchorder').innerHTML = html;
+                    }else{
+                        $("#myAlert2").show();
+                        $(".errText").html(res.errMsg)
+                        setTimeout(function(){
+                            $("#myAlert2").hide();
+                        },3000)
+                    }
+                },
+                error:function (err) {
+                    console.log(err);
+                    instance.stop();
+                    $("#myAlert2").show();
+                    $(".errText").html("请求错误")
+                    setTimeout(function(){
+                        $("#myAlert2").hide();
+                    },3000)
+                }
+            });
+        }
+        function formatDate(now) {
+                console.log(now)
+                var year = now.getFullYear();
+                var month = now.getMonth()+1 >= 10?now.getMonth()+1:'0'+(now.getMonth()+1);
+                var date = now.getDate() >= 10?now.getDate():'0'+now.getDate();
+                var hour = now.getHours() >= 10?now.getHours():'0'+now.getHours();
+                var minute = now.getMinutes() >= 10?now.getMinutes():'0'+now.getMinutes();
+                var second = now.getSeconds() >= 10?now.getSeconds():'0'+now.getSeconds();
+                return year+"-"+month+"-"+date+" "+hour+":"+minute+":"+second;
+            }
+    </script>
+</body>
+</html>

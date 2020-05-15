@@ -1,5 +1,6 @@
 (function (doc, win) {
     let a = false
+    let isShow = true
     $(".burger").click(function(event){
         event.stopPropagation()
         a = !a;
@@ -11,11 +12,16 @@
             // $(".bg").hide()
         }
     })
+    $(".nav").click(function(){
+        event.stopPropagation();
+    })
     $(document).click(function(){
         if(a){
             a = !a
             $(".nav").slideUp()
         }
+        isShow = true
+        $(".nav-child").slideUp()
     })
     
     var docEl = doc.documentElement;
@@ -23,6 +29,9 @@
     let width = $(".swiper-container").width()
     resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
     recalc = function (wid) {
+        isShow = true
+        $(".nav-child").slideUp()
+        
         $('.nav').attr('style', '')
         $(".bg").attr('style', '')
         
@@ -31,7 +40,6 @@
         var clientWidth = docEl.clientWidth;
         if (!clientWidth) return;
         if (clientWidth <= 750) {
-            console.log(width)
             $(".pro-menu-list").eq(0).children().css({"display":"none",color:"#fff"})
             $(".pro-menu-list").eq(1).children().css({"display":"none",color:"#969696"})
             $(".spec").children().css({"display":"none"})
@@ -58,5 +66,16 @@
     window.onload = function () {
         recalc();
     }
+    
+    $(".nav-li").on("click",function(){
+        isShow = !isShow
+        console.log(8888988,isShow)
+        if(!isShow){
+            $(this).children(".nav-child").slideDown()
+        }else{
+            $(this).children(".nav-child").slideUp()
+        }
+        
+    })
     recalc();
 })(document, window);

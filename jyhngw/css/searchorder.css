@@ -1,0 +1,122 @@
+.confirm-area-control{
+    float: right !important;
+}
+.form-text{
+    display: none;
+    color: red !important;
+}
+#myAlert2{
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    z-index: 100;
+    display: none;
+}
+.buy .alert .form-group{
+    margin-bottom: 15px;
+}
+.searchOrder{
+    display: block;
+    width: 10rem;
+    margin: 10px auto;
+}
+.item-top p{
+    margin: 0;
+}
+.item-top .li{
+    margin: 0;
+    padding: 5px 0;
+}
+.buy form{
+    padding: 0;
+    margin: 0 auto;
+}
+.content-left{
+    padding: 0.4rem;
+    box-sizing: border-box;
+    
+}
+.content-left .li{
+    display: flex;
+    margin: 0.4rem 0;
+}
+.content-left .li .sp-title{
+    width: 100px;
+    text-align: center;
+    text-align: left;
+}
+.content-left .li .sp-content{
+    flex: 1;
+    padding-left: 10px;
+}
+.left-content{
+    border-right: 1px solid #aaa;
+    border-top: 1px solid #aaa;
+}
+.content-right{
+    display: flex;
+    text-align: center;
+    padding: 0;
+    border-top: 1px solid #aaa;
+}
+.content-right .title{
+    flex: 1;
+}
+.content-right .title{
+    border-right: 1px solid #aaaaaa;
+}
+.content-right p{
+    margin: 0;
+    padding: 5px;
+    border-bottom: 1px solid #aaaaaa;
+}
+.content-right .title:last-child{
+    border: none;
+}
+.content-text .content{
+    flex: 1;
+    padding: 0 10px;
+}
+@media (max-width: 575px){
+    .left-content{
+        border-top: 1px solid #aaa;
+        border-right: 0px solid #aaa;
+    }
+
+}
+@media (max-width: 750px){
+    .footer .warp .bottom a, .footer .warp .bottom i, .footer .warp .bottom span {
+        font-size: 0.8rem !important;
+    }
+    .buy form{
+        padding: 0;
+        margin: 0 auto;
+    }
+    .content-right{
+        display: flex;
+    }
+    .content-right .title{
+        flex: 1;
+    }
+    .content-text .content{
+        flex: 1;
+        padding: 0 10px;
+    }
+}
+.searchorder{
+    width: 94%;
+    margin: 0 auto;
+    padding-top: 12px;
+    border-top: 1px solid #aaa;
+}
+.list-group-item{
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #aaa;
+    margin-bottom: 0.4rem;
+    border-top-width:1px !important;
+}
+.buy .row{
+    margin: 0;
+}

@@ -1,0 +1,38 @@
+.buy{
+    min-height: calc(100vh - 98px);
+    padding-top: 30px;
+}
+.open{
+    height: 30px;
+    line-height: 30px;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    width: 100%;
+}
+.back{
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+}
+.buy form{
+    max-width: 600px;
+    width: 50%;
+    padding: 20px;
+    margin:0 auto;
+}
+.city-picker-span{
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+@media(max-width :750px){
+    .buy form{
+        padding: 20px;
+        width: 90%;
+        margin:0 auto;
+    }
+    .buy{
+        min-height: calc(100vh - 142px);
+        padding-top: 30px;
+    }
+    
+}

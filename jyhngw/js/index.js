@@ -2,24 +2,24 @@
 
 // glide.mount()
 $(document).ready(function(){
-    let a = false
-    $(".burger").click(function(event){
-        event.stopPropagation()
-        a = !a;
-        if(a){
-            $(".nav").slideDown()
-            // $(".bg").show()
-        }else{
-            $(".nav").slideUp()
-            // $(".bg").hide()
-        }
-    })
-    $(document).click(function(){
-        if(a){
-            a = !a
-            $(".nav").slideUp()
-        }
-    })
+    // let a = false
+    // $(".burger").click(function(event){
+    //     event.stopPropagation()
+    //     a = !a;
+    //     if(a){
+    //         $(".nav").slideDown()
+    //         // $(".bg").show()
+    //     }else{
+    //         $(".nav").slideUp()
+    //         // $(".bg").hide()
+    //     }
+    // })
+    // $(document).click(function(){
+    //     if(a){
+    //         a = !a
+    //         $(".nav").slideUp()
+    //     }
+    // })
     //轮播
     var swiper = new Swiper('.swiper-container', {
         loop : true,
@@ -35,18 +35,18 @@ $(document).ready(function(){
 
     //吸顶条
     //产品导购条距离顶部距离
-    let pruTop = $(".pro-header").offset().top
-    $(document).scroll(function(){
-        let scrollTop = $(document).scrollTop()
-        // console.log(pruTop,scrollTop)
-        if(pruTop <= scrollTop){
-            $(".pro-header").css({position:"fixed",top:0,})
-            $("scrollTopBox").show()
-        }else{
-            $(".pro-header").css({position:"",})
-            $("scrollTopBox").hide()
-        }
-    });
+    // let pruTop = $(".pro-header").offset().top
+    // $(document).scroll(function(){
+    //     let scrollTop = $(document).scrollTop()
+    //     // console.log(pruTop,scrollTop)
+    //     if(pruTop <= scrollTop){
+    //         $(".pro-header").css({position:"fixed",top:0,})
+    //         $("scrollTopBox").show()
+    //     }else{
+    //         $(".pro-header").css({position:"",})
+    //         $("scrollTopBox").hide()
+    //     }
+    // });
 
     //点击切换商品介绍
     $(".pro-menu-list").click(function(){
