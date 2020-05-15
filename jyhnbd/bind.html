@@ -20,7 +20,7 @@
                 <span>设备号:</span>
                 <input type="text" class="ipt" style="padding-left: 10px;outline: none;-webkit-appearance: none; 
                 -webkit-tap-highlight-color: rgba(0, 0, 0, 0); ">
-                <span class="icon"><img src="./image/scan.png" alt=""></span>
+                <span class="icon scan-icon"><img src="./image/scan.png" alt=""></span>
             </div>
             <div class="btn">绑定</div>
         </div>
@@ -63,6 +63,7 @@
         
         
     </div>
+    <script src="./js/js-sdk.js"></script>
     <script>
         
     function randomString(len) {
@@ -78,10 +79,10 @@
     }
     console.log(randomString())
         //进行跳转获取openid
-            url_config = 'http://29906e24h1.zicp.vip';
-            url_config = 'https://www.easeway.co';
-        let wsurl_config = 'wss://www.easeway.co'
-            // wsurl_config = 'wss://29906e24h1.zicp.vip'
+            url_config = 'http://192.168.199.228:8989';
+            // url_config = 'https://www.easeway.co';
+            // let wsurl_config = 'wss://www.easeway.co'
+            wsurl_config = 'ws://192.168.199.228:8989'
         //弹框状态
         let Status = false;
         //用于填写发送消息的输入框
@@ -119,23 +120,41 @@
         }
         //错误响应
         function errorOccurred(e){
-            console.log(e,'萨达errorOccurred')
+            console.log(e,'错误连接') 
         }
         //消息关闭
         function connectionClosed(e){
-            console.log(e,'萨达connectionClosed')
+            console.log(e,'连接关闭')
         }
         $(document).ready(function(){
             // let result = await ADR.jsSdk();
             // Toast.clear();
-            wx.config({
-                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-                appId: result.AppID, // 必填，公众号的唯一标识
-                timestamp: result.timestamp, // 必填，生成签名的时间戳
-                nonceStr: result.nonceStr, // 必填，生成签名的随机串
-                signature: result.signature,// 必填，签名
-                jsApiList: ['getLocation'] // 必填，需要使用的JS接口列表
-            });
+            let url = location.href.split('#')[0]
+            $.ajax({
+                url: url_config+"/wechat/scanFunction", 
+                data:JSON.stringify({url}),
+                type:"POST",
+                dataType: "json",
+                headers: { 
+                    'Content-Type': 'application/json;charset=UTF-8'  
+                },
+                success: function(res){
+                    console.log(res,'wx')
+                    if(res.errCode === 1){
+                        let result = res.data
+                        wx.config({
+                            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                            appId: result.appId, // 必填，公众号的唯一标识
+                            timestamp: result.timestamp, // 必填，生成签名的时间戳
+                            nonceStr: result.nonceStr, // 必填，生成签名的随机串
+                            signature: result.signature,// 必填，签名
+                            jsApiList: ['scanQRCode'] // 必填，需要使用的JS接口列表
+                        });
+                    }else{
+                            
+                    }
+                }
+            })
             let openid = sessionStorage.getItem("openid")
             connect(openid);
             $(".btn").click(
@@ -162,7 +181,6 @@
                         'Content-Type': 'application/json;charset=UTF-8'  
                     },
                     success: function(res){
-                        console.log(res,'myres')
                         if(res.errCode !== 1){
                             $(".myload").hide()
                             $(".prompt-content2").html(res.errMsg)
@@ -179,6 +197,17 @@
                 }else{
                     $(".prompt0").hide()
                 }
+            })
+            //点击摄像头
+            $(".scan-icon").click(function(){
+                wx.scanQRCode({
+                    needResult:1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+                    scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+                    success: function (res) {
+                        var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+                        $('.ipt').val(result)
+                    }
+                })
             })
         });
     </script>
