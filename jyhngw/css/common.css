@@ -42,10 +42,12 @@ body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, d
     margin: 0;
     padding: 0;
 }
+
 body {
     font: 12px/1.5 'Microsoft YaHei','宋体', Tahoma, Arial, sans-serif;
     color: #555;
-    background-color: #F7F7F7;
+    height: 100vh !important;
+    background-color: #f2f2f2;
 }
 em, i {
     font-style: normal;
@@ -130,10 +132,6 @@ a:link,a:active,a:visited,a:hover {
 }
 .dn{
     display: none;
-}
-body{
-    height: 100vh !important;
-    background: #fff;
 }
 header{
     height: 60px;
@@ -348,7 +346,7 @@ header .burger{
 .footer{
     margin-top: 10px;
     width: 100%;
-    max-width: 1680px;
+    /* max-width: 94%; */
     margin-left: auto;
     margin-right: auto;
     min-height: 100px;

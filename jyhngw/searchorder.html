@@ -337,7 +337,7 @@
                         let data = res.data
                         data.forEach(res=>{
                             res.customerCreateTime = formatDate(new Date(res.customerCreateTime))
-                            res.orderStatus = res.orderStatus === 1?'已完成':'未完成'
+                            res.orderStatus = res.orderStatus === 0?'预约':res.orderStatus === 1?'运输中':'已完成'
                         })
                         let myData = {
                             list:data

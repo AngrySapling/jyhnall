@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简易慧能</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+        .mobile{
+            /* display: none; */
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        .img{
+            display: none;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 100;
+        }
+        #appicon-bg{
+            background: url(./images/downloadbg.png) top center no-repeat #fff;
+            width: 160px;
+            height: 160px;
+            background-size: 100% auto;
+            border: none;
+            margin: 150px auto 30px;
+            text-align: center;
+        }
+        .appicon {
+            border: none;
+            width: 100px;
+            height: 100px;
+            margin-top: 34px;
+        }
+        h2{
+            margin:20px 0;
+            text-align: center;
+        }
+        .btn-u.btn-u-green{
+            display: none;
+            display: block;
+            margin: 100px auto;
+            border: none;
+            background-color: transparent;
+            outline: none;
+            background: #279e96;
+            font-size: 18px;
+            padding: 8px 60px;
+            border-radius: 30px;
+            color: #fff;
+        }
+        .tips{
+            display: none;
+            text-align: center;
+            margin: 100px auto;
+            font-size: 18px;
+        }
+    </style>
+     <script src="./js/jquery.min.js"></script>
+</head>
+<body>
+    <div class="mobile">
+        <img src="./images/downloadnav.png" alt="" class="img">
+        <div id="appicon-bg"> 
+            <img src="./images/icon1.png" class="appicon" >
+        </div>
+        <h2>简易慧能</h2>
+        <p class="tips">请前往appStore进行下载</p>
+        <button type="submit" id="submitButton" class="btn-u btn-u-lg btn-u-green">点击下载</button>
+    </div>
+    <script>
+        console.log(navigator)
+        let ua = navigator.userAgent.toLowerCase();
+        let dowIpad = ua.match(/ipad/i) == "ipad";
+        let dowIphoneOs = ua.match(/iphone os/i) == "iphone os";
+        let dowMidp = ua.match(/midp/i) == "midp";
+        let dowUc7 = ua.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        let dowUc = ua.match(/ucweb/i) == "ucweb";
+        let dowAndroid = ua.match(/android/i) == "android";
+        let dowCE = ua.match(/windows ce/i) == "windows ce";
+        let dowWM = ua.match(/windows mobile/i) == "windows mobile";
+        let isWeixin = ua.indexOf('micromessenger') != -1
+        console.log(navigator,isWeixin)
+        $(document).ready(function(){
+            if(dowIpad || dowIphoneOs){//ios端
+                console.log("jinr Ios")
+                $("#submitButton").hide()
+                $(".tips").show()
+                if(isWeixin){//判断是否为微信
+                    $(".img").show()
+                }else{
+                    $(".img").hide()
+                }
+            }else if(dowMidp || dowUc7 || dowUc || dowAndroid || dowCE || dowWM){//移动端
+                $("#submitButton").show()
+                $(".tips").hide()
+                if(isWeixin){//判断是否为微信
+                    $(".img").css({display:'block'})
+                }else{
+                    $(".img").css({display:'none'})
+                }
+            }else{//pc端
+                $("#submitButton").show()
+            }
+            $(".btn-u").on("click",function(){
+                window.location.href = "https://www.easeway.co/app/jyhnapp.apk"
+            })
+        });
+        
+    </script>
+</body>
+</html>
