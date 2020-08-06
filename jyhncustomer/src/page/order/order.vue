@@ -26,7 +26,7 @@
                             <Col  :xs="24" :sm="12">
                                 <p class="li">
                                     <span class="sp-title">订单状态:</span>
-                                    <span class="sp-content">{{item.orderStatus}}</span>
+                                    <span class="sp-content">{{item.orderStatus === 0?'预约':item.orderStatus === 1?'运输中':'已签收'}}</span>
                                 </p>
                             </Col>
                             <Col  :xs="24" :sm="12">
@@ -89,6 +89,7 @@
 import CardPerson from '@/components/cardPerson'
 import order from '@/api/order.js'
 import user from '@/api/user.js'
+import { formatTime } from '@/utils/playDate.js'
 export default {
     components:{CardPerson},
     data(){
@@ -115,6 +116,9 @@ export default {
         async getOrderList(id){
             let result = await order.customerOrderStatus({})
             if(result && result.errCode === 1){
+                result.data.map(res=>{
+                    res.customerCreateTime = formatTime(res.customerCreateTime,'Y-M-D h:m')
+                })
                 this.orderList = result.data
             }
         }

@@ -35,6 +35,7 @@ const httpRequest = (opts,data) => {
                     switch (result.errCode){
                         case 1:	
                             break;
+                        case 100051:
                         case 401:
                             router.push("/login")
                             return;

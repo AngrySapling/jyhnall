@@ -30,8 +30,8 @@
                 <span>注册</span>
                 </button> 
                 <div class="dev-sign-main-aside-tip">
-                    <p>注册即表示您同意我们的<a href="/privacy" target="_blank">服务条款与隐私政策</a></p> 
-                    <p>已经拥有账户？ <a href="/signin" class="">登录</a></p>
+                    <!-- <p>注册即表示您同意我们的<a href="/privacy" target="_blank">服务条款与隐私政策</a></p>  -->
+                    <p>已经拥有账户？ <router-link to="/login">登录</router-link></p>
                 </div>
             </div>
         </Form>
@@ -39,6 +39,8 @@
 </template>
 <script>
 import user from '@/api/user.js'
+import radom from '@/utils/radom'
+import md5 from 'js-md5'
 export default {
     data(){
         const validatePhone = (rule, value, callback) => {
@@ -105,7 +107,7 @@ export default {
                     { required: true, message: '请输入姓名', trigger: 'blur' }
                 ],
                 serialNumber: [
-                    { required: true, message: '请输入设备序列号', trigger: 'blur' },
+                    // { required: true, message: '请输入设备序列号', trigger: 'blur' },
                     { type: 'string',len: 12, message: '请输入11位设备序列号', trigger: 'change' }
                 ],
                 feedbackPassword: [
@@ -127,13 +129,14 @@ export default {
                 if (valid) {
                     delete this.formTop.feedbackPasswordCheck
                     this.isloading1 = true
-                    let result = await user.register(this.formTop)
+                    let data = JSON.parse(JSON.stringify(this.formTop))
+                    data.feedbackPassword = md5(md5(data.feedbackPassword+radom))
+                    let result = await user.register(data)
                     this.isloading1 = false
                     if(result && result.errCode === 1){
+
                         this.$Message.success('注册成功');
                         this.$router.push('/login')
-                    }else{
-                        this.$Message.error(result.errMsg);
                     }
                 } else {
                     console.log(name,8888)
@@ -142,7 +145,6 @@ export default {
         },
         // {getPhoneCode,register}
         async getCode(){//获取手机验证码
-            console.log('校验')
             if(this.formTop['phoneNumber'] && !this.time){
                 let identification = this.formTop.identification = new Date().getTime()
                 let data = {
@@ -155,11 +157,12 @@ export default {
                 this.isloading0 = false
                 if(result && result.data){
                     this.$Message.success('验证码获取成功');
-                    this.time = 120
                     this.iptPhoneCode = true
                     let _this = this
-                    let isTimes = setTimeout(function(){
+                    this.time = 120
+                    let isTimes = setInterval(function(){
                         _this.time--
+                        console.log(_this.time,'time')
                         if(!_this.time){
                             clearTimeout(isTimes)
                             _this.iptPhoneCode = false
@@ -178,6 +181,7 @@ export default {
 </script>
 <style lang="less">
     .reg{
+        min-height: 100vh;
         display: flex;
         justify-content: center;
         background:#f5f5f5;

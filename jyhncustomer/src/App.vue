@@ -28,7 +28,9 @@ export default {
 body{
   margin: 0;
 }
-
+a{
+  display:inherit;
+}
 
 ::-webkit-scrollbar {
   width: 6px;

@@ -26,6 +26,8 @@
 </template>
 <script>
 import user from '@/api/user.js'
+import radom from '@/utils/radom'
+import md5 from 'js-md5'
 export default {
     data(){
         const validatePhone = (rule, value, callback) => {
@@ -97,13 +99,13 @@ export default {
                 console.log(valid,'5654564')
                 if (valid) {
                     this.isloading1 = true
-                    let result = await user.forgetPassword(this.formTop)
+                    let data = JSON.parse(JSON.stringify(this.formTop))
+                    data.feedbackPassword = md5(md5(data.feedbackPassword+radom))
+                    let result = await user.forgetPassword(data)
                     this.isloading1 = false
                     if(result && result.errCode === 1){
                         this.$Message.success('密码重置成功');
                         this.$router.push('/login')
-                    }else{
-                        this.$Message.error(result.errMsg);
                     }
                 } else {
                     console.log(name,8888)
@@ -128,7 +130,7 @@ export default {
                     this.time = 120
                     this.iptPhoneCode = true
                     let _this = this
-                    let isTimes = setTimeout(function(){
+                    let isTimes = setInterval(function(){
                         _this.time--
                         if(!_this.time){
                             clearTimeout(isTimes)
@@ -139,8 +141,6 @@ export default {
                     this.$Message.error(result.errMsg);
                 }
             }
-            
-            
         }
     },
 }

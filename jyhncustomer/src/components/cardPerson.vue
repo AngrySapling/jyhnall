@@ -3,9 +3,9 @@
         <Card :bordered="false">
             <p slot="title">个人信息</p>
             <p class="msg"><span class="msg-title">姓名:</span><span class="msg-content">{{userMsg.feedbackName}}</span></p>
-            <p class="msg"><span class="msg-title">序列号:</span ><span class="msg-content">{{userMsg.serialNumber}}</span></p>
             <p class="msg"><span class="msg-title">手机号:</span><span class="msg-content">{{userMsg.phoneNumber}}</span></p>
             <p class="msg"><span class="msg-title">邮箱:</span><span class="msg-content">{{userMsg.feedbackEmail}}</span></p>
+            <p class="msg"><span class="msg-title">设备序列号:</span ><span class="msg-content">{{userMsg.hostNumber || userMsg.serialNumber}}</span></p>
         </Card>
     <Card :bordered="false" style="margin-top:10px;" v-if="showback">
             <p slot="title">{{title}}</p>
@@ -67,7 +67,7 @@ export default {
            line-height:25px;
             .msg-title{
                 text-align: left;
-                width: 60px;
+                width: 80px;
                 text-align-last: justify;
             }
             .msg-content{

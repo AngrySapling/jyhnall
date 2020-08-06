@@ -1,8 +1,8 @@
 <template>
     <div class="login">
         <Form ref="formInline" :model="formInline" :rules="ruleInline" inline >
-            <FormItem prop="feedbackName">
-                <Input type="text" v-model="formInline.feedbackName" placeholder="用户名">
+            <FormItem prop="phoneNumber">
+                <Input type="text" v-model="formInline.phoneNumber" placeholder="用户名">
                     <Icon type="ios-person-outline" slot="prepend"></Icon>
                 </Input>
             </FormItem>
@@ -12,7 +12,7 @@
                 </Input>
             </FormItem>
             <FormItem>
-                <Button type="success" long @click="handleSubmit('formInline')">登录</Button>
+                <Button type="success" :loading="loading" long @click="handleSubmit('formInline')">登录</Button>
             </FormItem>
             <div class="dev-sign-main-aside-tip">
                 <p><router-link to="/pwd">忘记密码？</router-link></p> 
@@ -24,15 +24,18 @@
 <script>
 import feedback from '@/api/user.js'
 import {setToken} from '@/utils/storage.js'
+import radom from '@/utils/radom'
+import md5 from 'js-md5'
 export default {
     data(){
         return {
+            loading:false,
             formInline: {
-                feedbackName: '',
+                phoneNumber: '',
                 feedbackPassword: ''
             },
             ruleInline: {
-                feedbackName: [
+                phoneNumber: [
                     { required: true, message: '请输入用户名', trigger: 'blur' }
                 ],
                 feedbackPassword: [
@@ -46,9 +49,11 @@ export default {
         handleSubmit(name) {
             this.$refs[name].validate(async (valid) => {
                 if (valid) {
-                    console.log(this.formInline)
-                    let result = await feedback.feedbackLogin(this.formInline)
-                    console.log(result)
+                    let data = JSON.parse(JSON.stringify(this.formInline))
+                    this.loading = true
+                    data.feedbackPassword = md5(md5(data.feedbackPassword+radom))
+                    let result = await feedback.feedbackLogin(data)
+                    this.loading = false
                     if(result && result.data){
                         this.$Message.success('登录成功');
                         let data = result.data

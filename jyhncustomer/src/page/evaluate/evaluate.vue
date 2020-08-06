@@ -14,9 +14,9 @@
                             <Rate v-model="score" :disabled="Boolean(evaluate.score)"/>
                         </div>
                     </div>
-                    <div class="file">
-                        <span>反馈 : </span>
-                        <div class="content-back"  v-if="evaluate.id">
+                    <div class="file" v-if="evaluate.id">
+                        <span>评价 : </span>
+                        <div class="content-back">
                             <ul class="concat">
                                 <li v-for="(item,index) in evaluate.comment">
                                     {{item}}
@@ -35,7 +35,7 @@
                             <Button type="primary" @click="playSaveCustomerScore" :loading="loading">{{evaluate.id?"回复":"提交"}}</Button>
                         </li>
                         <li class="btn">
-                            <Button type="primary">取消</Button>
+                            <Button type="primary"  @click="cancelText">取消</Button>
                         </li>
                     </ul>
                </div>
@@ -60,10 +60,25 @@ export default {
         }
     },
     methods: {
+        cancelText(){
+            this.comment = ""
+        },
         async getPersonMessage(){//个人信息
             let result = await user.personMessage({})
             if(result && result.errCode === 1){
                 this.userMsg = result.data
+                this.$store.commit('getUser',result.data)
+                let status = result.data.customerBindStatus;
+                let _this = this;
+                if(!status){
+                    this.$Modal.warning({
+                        title: '提示',
+                        content: '暂未绑定设备,请先绑定设备',
+                        onOk:function(){
+                            _this.$router.push("/person")
+                        }
+                    });
+                }
                 console.log(this.userMsg)
             }else{
 
@@ -133,6 +148,7 @@ export default {
                     content: "提交成功",
                     duration: 4
                 });
+                this.comment = ""
                 this.getcustomerScoreList()
             }
         }

@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie'
 
 export function setToken(value){
-    Cookies.set('token', value, { expires: 7 });
+    Cookies.set('token', value, { expires: 1 });
 }
 
 export function getToken(){

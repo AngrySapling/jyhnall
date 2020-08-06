@@ -3,7 +3,7 @@
         <Row class="back-row">
             <Col :xs="24" :sm="10" :md="8" :lg="6"  class="left">
                 <div>
-                    <Card-person @toDetail="getFeedBackDetail" @newBuilt="newBuilt" title="反馈" :userMsg="userMsg" :showback="true" :backList="backList"></Card-person>
+                    <Card-person @toDetail="toDetail" @newBuilt="newBuilt" title="反馈" :userMsg="userMsg" :showback="true" :backList="backList"></Card-person>
                 </div>
             </Col>
             <Col :xs="24" :sm="14" :md="16" :lg="18" class="right">
@@ -13,7 +13,7 @@
                             <span>类别 : </span>
                             <Dropdown trigger="click" style="margin-left: 20px"  @on-click="change">
                                 <a href="javascript:void(0)">
-                                    {{feedBackDetail.type?feedBackDetail.type:checkItem.type}}
+                                    {{feedBackDetail.type?feedBackDetail.type:checkItem.type?checkItem.type:'请选择类别'}}
                                     <Icon type="ios-arrow-down"></Icon>
                                 </a>
                                 <DropdownMenu slot="list" v-if="!backUuid">
@@ -34,14 +34,17 @@
                         <div>附件 : </div>
                         <div class="upload-photo">
                             <div style="text-align:left;padding-bottom:10px;">图片</div>
-                            <div style="overflow: hidden;">
-                                <div class="demo-upload-list" v-for="(item,index) in uploadList">
+                            <div style="overflow: hidden;" >
+                                <div class="demo-upload-list" v-for="item in uploadList">
                                     <template>
                                         <img :src="item.url">
                                         <div class="demo-upload-list-cover">
                                             <Icon type="ios-eye-outline" @click.native="handleView(item.url)"></Icon>
                                             <Icon type="ios-trash-outline" @click.native="handleRemove(item)"></Icon>
                                         </div>
+                                    </template>
+                                    <template >
+                                        <Progress v-if="item.showProgress" :percent="item.percentage" hide-info></Progress>
                                     </template>
                                 </div>
                                 <Upload
@@ -56,7 +59,7 @@
                                     :before-upload="handleBeforeUpload"
                                     multiple
                                     name="photo"
-                                    action="http://192.168.199.228:8989/wechat/uploadPhotoFile"
+                                    :action="action0"
                                     style="display: inline-block;width:58px;border:1px solid #f5f5f5;">
                                     <div style="width: 58px;height:58px;line-height: 58px;">
                                         <Icon type="ios-camera" size="20"></Icon>
@@ -71,11 +74,11 @@
                                 :before-upload="handleBeforeUploadVideo"
                                 :on-format-error="handleFormatVideoError"
                                 :format="['avi','mp4','rmvb','MOV']"
-                                action="http://192.168.199.228:8989/wechat/uploadVideoFile">
+                                :action="action1">
                                 <Button icon="ios-cloud-upload-outline">选择视频文件上传</Button>
                             </Upload>
                             <div v-if="file !== null">{{ file.name }}</div>
-                            <div v-if="backUuid" class="video">
+                            <div v-if="backUuid && feedBackDetail.videoUrl" class="video" >
                                 <video :src="feedBackDetail.videoUrl" controls="controls"></video>
                             </div>
                         </div>
@@ -105,7 +108,6 @@
                             <Input v-model="textVal" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入反馈内容" />
                         </div>
                     </div>
-                    
                     <ul class="file">
                         <li class="btn">
                             <Button type="primary" :loading="loading" :disabled="Boolean(feedBackDetail.backStatus)" @click="playCustomerBack">
@@ -119,7 +121,7 @@
                                 <span v-else>Loading...</span>
                             </Button>
                         </li>
-                        <li class="btn" >
+                        <li class="btn" v-if="!Boolean(feedBackDetail.backStatus)">
                             <Button type="primary">取消</Button>
                         </li>
                     </ul>
@@ -133,6 +135,7 @@
 </template>
 <script>
 import CardPerson from '@/components/cardPerson'
+import config from '@/api/config.js'
 import back from '@/api/feedback.js'
 import user from '@/api/user.js'
 export default {
@@ -145,8 +148,9 @@ export default {
             //视频
             file:null,
             Video:{},
-
             backUuid:"",
+            action0:config.url_config+'/wechat/uploadPhotoFile',
+            action1:config.url_config+'/wechat/uploadVideoFile',
             userMsg:{},
             dropList:[],//类别列表
             backList:[],//反馈列表
@@ -172,12 +176,8 @@ export default {
         },
         newBuilt(){//新建
             console.log("新建")
-            this.feedBackDetail = {}
-            this.backUuid = ""
-            this.feedBackDetailChat = {}
-            this.textVal = ""
-            this.uploadList = []
-            this.Video = {}
+            this.$router.push("/feedback")
+            this.reload()
         },
         //上传视频
         handleBeforeUploadVideo(){
@@ -222,7 +222,7 @@ export default {
             this.uploadList.splice(index,1)
         },
         handleSuccess (res, file) {//上传成功的钩子
-            console.log(res,file,'file')
+            console.log(res,file,'成功')
             if(res && res.data){
                 this.uploadList.push({url:res.data.photoUrl,photoSize:res.data.photoSize})
                 console.log(this.uploadList)
@@ -233,8 +233,6 @@ export default {
                 })
             }
             return
-            file.url = 'https://o5wwk8baw.qnssl.com/7eb99afb9d5f317c912f08b5212fd69a/avatar';
-            file.name = '7eb99afb9d5f317c912f08b5212fd69a';
         },
         handleFormatError (file) {//文件格式验证失败
             this.$Notice.warning({
@@ -258,7 +256,7 @@ export default {
         handleBeforeUpload () {//上传之前
             console.log(this.uploadList,'this.uploadList')
             const check = this.uploadList.length < 5;
-            if (!check) {
+            if(!check){
                 this.$Notice.warning({
                     title: 'Up to five pictures can be uploaded.'
                 });
@@ -272,7 +270,6 @@ export default {
             }else{
                 this.playBtn()
             }
-            
         },
         //提交
         async playBtn(){
@@ -288,7 +285,7 @@ export default {
                 promblemDetail:this.textVal,
                 promblemTypeId:this.checkItem.id,
                 videoUrl:this.Video.videoUrl,
-                videoSize:this.Video.videoSize
+                videoSize:this.Video.videoSize,
             }
             let result = await back.customerBack(data)
             this.loading = false
@@ -327,6 +324,10 @@ export default {
                 this.getFeedBackDetail(id)
             }
         },
+        toDetail(id){
+            this.$router.push("/feedback?id="+id)
+            this.reload()
+        },
         async getFeedBackDetail(id){//获取回复详情与聊天详情chatRecordString
             this.uploadList = []
             this.backUuid = id;
@@ -339,11 +340,13 @@ export default {
                 this.feedBackDetail = result1.data
                 let url = this.feedBackDetail.photoUrl.split(",")
                 url.forEach(res=>{
-                    this.uploadList.push({
-                        url:res
-                    })
+                    if(res){
+                        this.uploadList.push({
+                            url:res
+                        })
+                    }
                 }) 
-                console.log()
+                console.log(url,'this.uploadList')
             }
             
         },
@@ -358,7 +361,18 @@ export default {
             let result = await user.personMessage({})
             if(result && result.errCode === 1){
                 this.userMsg = result.data
-                console.log(this.userMsg)
+                this.$store.commit('getUser',result.data)
+                let status = result.data.customerBindStatus;
+                let _this = this;
+                if(!status){
+                    this.$Modal.warning({
+                        title: '提示',
+                        content: '暂未绑定设备,请先绑定设备',
+                        onOk:function(){
+                            _this.$router.push("/person")
+                        }
+                    });
+                }
             }
         },
         async backMessage(){//查询是否添加反馈
@@ -387,6 +401,10 @@ export default {
         padding: 0 10px;
         min-width:200px;
     }
+    .ivu-dropdown .ivu-select-dropdown{
+        overflow: auto;
+        max-height: 300px;
+    }
     .content{
         padding: 10px;
         box-sizing: border-box;
@@ -402,33 +420,35 @@ export default {
                 flex: 1;
                 padding:0 20px;
                 .demo-upload-list{
+                    
                     float: left;
                     margin-right: 10px;
-                border:1px solid #f5f5f5;
+                    border:1px solid #f5f5f5;
+                    width: 58px;
+                    height: auto;
+                    /* min-height: 100px; */
+                    max-height: 100px;
+                    img{
+                        height: 100%;
+                        width:100%;
+                        min-height: 60px;
+                        max-height: 60px;
+                    }
                 }
                 .ivu-upload{
                     float: left;
                 }
             }
-            .demo-upload-list{
-                width: 58px;
-                height: auto;
-                min-height: 100px;
-                max-height: 100px;
-                img{
-                    height: 100%;
-                    width:100%;
-                    min-height: 60px;
-                    max-height: 60px;
-                }
-            }
+            
             .video{
-                width: 30%;
-                min-width: 280px;
+                width: 25%;
+                min-width: 150px;
+                max-width: 200px;
                 height: auto;
                 video{
                     height: 100%;
                     width:100%;
+                    object-fit: fill;
                 }
             }
             .content-back{
@@ -465,7 +485,7 @@ export default {
             margin: 0;
             padding: 5px 0;
             line-height: 25px;
-                max-width:100%;
+            max-width:100%;
             p{
                 padding: 5px 10px;
                 background-color: #f5f5f5;

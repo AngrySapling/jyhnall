@@ -1,0 +1,18 @@
+bcddc231dab7
+bcddc231dcde
+
+17858963202
+
+设置每天为红色 有限天数为绿色
+
+取药 设置提示框
+intent:#Intent;launchFlags=0x04000000;action=android.intent.action.oppopush;package=jyhn.lm;component=jyhn.lm/io.dcloud.PandoraEntry;S.UP-OL-SU=true;S.title=哈哈;S.content=我是;S.payload=30;end
+
+intent:#Intent;launchFlags=0x04000000;action=android.intent.action.mipush;package=jyhn.lm;component=jyhn.lm/io.dcloud.PandoraEntry;S.UP-OL-SU=true;S.title=标题;S.content=这是小米;S.payload=30;end
+
+intent:#Intent;package=com.jyhn.lm;component=com.jyhn.lm/io.dcloud.PandoraEntry;S.UP-OL-SU=true;S.title=标题;S.content=这是内容;S.payload=这是内容的内容;end
+
+{"title":"标题","content":"这是诶人","payload":"这是内容"}
+
+//取药份数计算错误
+//返回

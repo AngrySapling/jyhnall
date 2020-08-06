@@ -8,7 +8,7 @@ const api = {}
 const feedbackLogin = `${url_config}/feedBack/feedbackLogin`;
 api.feedbackLogin = params => request({url:feedbackLogin,method:'POST'}, params);
 
-//用户注册注册
+//用户注册注册1.feedBack/register 
 const register = `${url_config}/feedBack/register`;
 api.register = params => request({url:register,method:'POST'}, params);
 
@@ -27,5 +27,13 @@ api.personMessage = params => request({url:personMessage,method:'POST'}, params)
 //修改密码
 const changePassword = `${url_config}/feedBack/changePassword`;
 api.changePassword = params => request({url:changePassword,method:'POST'}, params);
+
+//绑定设备
+const bindEquipment = `${url_config}/feedBack/bindEquipment`;
+api.bindEquipment = params => request({url:bindEquipment,method:'POST'}, params);
+
+
+
+
 
 export default api;

@@ -51,7 +51,8 @@ const router = new Router({
 router.beforeEach((to,from,next)=>{//to,from,next
     //判断是否登录
     let token = getToken()
-    if(!token && to.path !== '/login'){
+    let arr = ['/login','/reg','/pwd']
+    if(!token && !arr.find(res=>res === to.path)){
         next("/login")
     }else{
         //未登录跳转到login页面
