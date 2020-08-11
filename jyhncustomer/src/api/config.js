@@ -6,8 +6,8 @@ if(process.env.NODE_ENV  ===  'development'){
     url_config = 'http://192.168.199.228:8989';
 	socket_config = 'ws://192.168.199.228:8989';
 	
-	// url_config = 'http://39.100.100.205:8989';
-    // socket_config = 'ws://39.100.100.205:8989';
+	url_config = 'http://39.100.100.205:8989';
+    socket_config = 'ws://39.100.100.205:8989';
     
     // url_config = 'http://29906e24h1.zicp.vip';
 	// socket_config = 'ws://29906e24h1.zicp.vip';

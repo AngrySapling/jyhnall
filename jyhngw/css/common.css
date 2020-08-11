@@ -48,6 +48,9 @@ body {
     color: #555;
     height: 100vh !important;
     background-color: #f2f2f2;
+    padding-top: 60px;
+    box-sizing: border-box;
+    overflow-y: auto;
 }
 em, i {
     font-style: normal;
@@ -204,7 +207,13 @@ header .burger{
     width: 100%;
     object-fit: cover;
 }
+.open{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
 
+}
 @media (min-width:1100px){
     header .nav{
         /* display: block; */

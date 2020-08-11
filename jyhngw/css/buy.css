@@ -1,6 +1,5 @@
 .buy{
-    min-height: calc(100vh - 98px);
-    padding-top: 30px;
+    min-height: calc(100vh - 170px);
 }
 .open{
     height: 30px;
@@ -31,8 +30,6 @@
         margin:0 auto;
     }
     .buy{
-        min-height: calc(100vh - 142px);
-        padding-top: 30px;
-    }
-    
+        min-height: calc(100vh - 226px);
+    } 
 }

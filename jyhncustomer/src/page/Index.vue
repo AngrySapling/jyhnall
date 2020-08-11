@@ -100,7 +100,7 @@
     </div>
 </template>
 <script>
-import {removeToken} from '@/utils/storage'
+import {removeToken,removeUser} from '@/utils/storage'
 export default {
     provide(){
         return {
@@ -122,6 +122,7 @@ export default {
         quit(){
             //删除token
             removeToken()
+            removeUser()
             this.$router.push("/login")
         },
         isShowmenu(){
@@ -309,6 +310,7 @@ export default {
     img{
       height: 44px;
       width:auto;
+      vertical-align: middle;
     }
 }
 .phone-menue{

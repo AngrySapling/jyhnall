@@ -2,6 +2,7 @@
 import axios from 'axios';
 import {getToken} from '@/utils/storage.js'
 import iview from 'view-design';
+import {removeToken,removeUser} from '@/utils/storage'
 import router from '@/router'
 const httpRequest = (opts,data) => {
     let token = getToken();
@@ -37,6 +38,8 @@ const httpRequest = (opts,data) => {
                             break;
                         case 100051:
                         case 401:
+                            removeToken()
+                            removeUser()
                             router.push("/login")
                             return;
                         default:
