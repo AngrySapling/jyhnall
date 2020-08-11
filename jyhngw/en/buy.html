@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="../../jyhngw/images/icon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../../jyhngw/css/common.css">
+    <link rel="stylesheet" href="../../jyhngw/css/buy.css">
+    <link rel="stylesheet" href="../../jyhngw/css/bootstrap.min.css">
+    <link href="../../jyhngw/css/city-picker.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../../jyhngw/css/area.css">
+    <link rel="stylesheet" href="../../jyhngw/css/ladda-themeless.min.css">
+    <style>
+        .confirm-area-control{
+            float: right !important;
+        }
+        .form-text{
+            display: none;
+            color: red !important;
+        }
+        #myAlert2{
+            position: fixed;
+            top: 100px;
+            left: 50%;
+            transform:translate(-50%,-50%);
+            z-index: 100;
+            display: none;
+        }
+        .isBuy{
+            height: 100vh !important;
+            overflow: hidden !important;
+        }
+        .buyGoods{
+            display: block;
+            width: 10rem;
+            margin: 20px auto;
+            margin-top: 20px;
+        }
+        @media (max-width: 750px){
+            .footer .warp .bottom a, .footer .warp .bottom i, .footer .warp .bottom span {
+                font-size: 0.8rem !important;
+            }
+        }
+        .price{
+            font-size: 1rem;
+            color: red;
+        }
+        .sp1{
+            color: #333;
+            padding: 10px;
+            text-decoration: line-through;
+        }
+        .sp2{
+            padding: 5px;
+            font-size: 1.4rem;
+        }
+        .label-sp1{
+            color: red;
+        }
+    </style>
+    <title>简易慧能</title>
+    <!--[if IE]>
+        <script src=”http://html5shiv.googlecode.com/svn/trunk/html5.js”></script>
+    < ![endif]-->
+</head>
+<body>
+    <!-- 头部 -->
+    <header class="open">
+        <p class="back" style="cursor: pointer;">
+            返回官网
+        </p>
+    </header>
+
+    <div id="myAlert2" class="alert alert-warning">
+        <!-- <a href="#" class="close" data-dismiss="alert">&times;</a> -->
+        <strong>ERR！</strong><span class="errText"></span>
+    </div>
+    <!-- 购买 -->
+    <div class="buy">
+        <form id="dataForm-buy">
+            <div class="form-group row">
+                <label for="exampleInputEmail1" class="col-sm-3 col-form-label"><span class="label-sp1">*</span> 姓名</label>
+                <div class="col-sm-9" >
+                    <input type="text" name="userName" class="form-control" data="userName" >
+                    <small id="emailHelp" data-toggle="userName" class="form-text text-muted">请输入姓名</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="exampleInputPassword1" class="col-sm-3 col-form-label"><span class="label-sp1">*</span>手机号</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="phoneNumber" id="exampleInputPassword1">
+                    <small id="emailHelp"  data-toggle="phoneNumber" class="form-text text-muted">请输入正确的手机号</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="exampleInputPassword1"  class="col-sm-3 col-form-label"><span class="label-sp1">*</span>验证码</label>
+                <div  class="col-sm-9">
+                    <div style="display: flex;">
+                        <input type="text" disabled class="form-control phoneCode" name="phoneCode" id="exampleInputPassword1" style="flex: 1;max-width:100px;">
+                        <div  style="flex: 3;">
+                            <button class="btn btn-primary getCode ladda-button" data-style="expand-right" name="getCode"  style="float: right;"><span class="ladda-label ladda-code">获取验证码</span></button>
+                        </div>
+                    </div>
+                    <small id="emailHelp" data-toggle="phoneCode" class="form-text text-muted" >请输入验证码</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="exampleFormControlSelect1" class="col-sm-3 col-form-label"><span class="label-sp1">*</span>选择型号</label>
+                <div class="col-sm-9">
+                    <select class="form-control" name="productModel" id="exampleFormControlSelect1">
+                        <option></option>
+                        <option>智能配药机</option>
+                    </select>
+                    <small id="emailHelp" data-toggle="productModel" class="form-text text-muted">请选择型号</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="exampleInputPassword1" class="col-sm-3 col-form-label"><span class="label-sp1">*</span>购买数量</label>
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" name="buyNum" id="exampleInputPassword1" style="max-width:100px;">
+                    <small id="emailHelp" data-toggle="buyNum" class="form-text text-muted">请输入购买数量</small>
+                </div>
+            </div>
+            <div id="distpicker" class="form-group row">
+                <label for="exampleInputPassword1" class="col-sm-3 col-form-label"><span class="label-sp1">*</span>地区选择</label>
+				<div class="form-group col-sm-9 pcadr">
+					<div style="position: relative;" class="mobile">
+                        <input type="text" style="background: #fff;" class="form-control mobile" name="region0" id="getArea" placeholder="请选择地区" value="北京市,北京市,西城区" readonly>
+                    </div>
+                    <div style="position: relative;" class="pc">
+                        <input class="form-control " name="region1" readonly type="text" value="北京市,北京市,东城区" data-toggle="city-picker">
+                    </div>
+                    <small id="emailHelp" data-toggle="region0" class="form-text text-muted">请选择地区</small>
+                    <small id="emailHelp" data-toggle="region1" class="form-text text-muted">请选择地区</small>
+				</div>
+            </div>
+            <div class="form-group row">
+                <label for="exampleInputPassword1" class="col-sm-3 col-form-label"><span class="label-sp1">*</span>详细地址</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="address" id="exampleInputPassword1">
+                    <small id="emailHelp" data-toggle="address" class="form-text text-muted">请输入详细地址</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="exampleInputPassword1" class="col-sm-3 col-form-label">邮编</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="postCode" id="exampleInputPassword1">
+                    <small id="emailHelp" data-toggle="postCode"  class="form-text text-muted">请输入邮政编码</small>
+                </div>
+            </div>
+            <small id="emailHelp" style="color:red;"  >* 产品按批次预定，达到一定批量后会有销售人员联系您有关付款事宜，请保持手机畅通</small>
+            <button class="btn btn-primary buyGoods" οnclick="submitForm()" data-target="#exampleModal">预定</button>
+            <small id="emailHelp" class="price" >价格： <span class="sp2">1980元</span> </small>
+        </form>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">确认购买</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    您确认提交购买信息!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary btn-buy ladda-button" data-style="expand-right"><span class="ladda-sure">确认</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 底部介绍 -->
+    <footer class="footer">
+        <div class="warp">
+            <div class="bottom">
+                <div class="bottom">
+                    <div class="bottom1">
+                        <a spm-d="1" href="../../jyhngw/en/introduce.html">关于简易</a>
+                        <i>|</i>
+                        <a spm-d="2" href="https://www.easeway.co/jyhnadmin/index.html">后台管理</a>
+                        <i>|</i>
+                        <!-- <a spm-d="3" href="#">联系我们</a>
+                        <i>|</i> -->
+                        <a spm-d="4" href="../../jyhngw/en/tec.html?par=1&id=2&styleId=0">帮助中心</a>
+                        <i>|</i>
+                        <a spm-d="5" href="../../jyhngw/en/app.html">app下载</a>
+                    </div>
+                    <div class="bottom1">
+                        <span>京ICP备19057231号-1</span>
+                        <i class="o_xs-hide ">|</i>
+                        <span>Copyright ©2019 简易慧能 版权所有</span>
+                    </div>
+                </div>
+                <div class="bottom1">
+                    <span>京ICP备19057231号-1</span>
+                    <i class="o_xs-hide ">|</i>
+                    <span>Copyright ©2019 简易慧能 版权所有</span>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <script src="../../jyhngw/js/jquery.min.js"></script>
+    <script src="../../jyhngw/js/bootstrap.min.js"></script>
+    <script src="../../jyhngw/js/bootstrap.bundle.min.js"></script>
+    <script src="../../jyhngw/js/city-picker.data.js"></script>
+    <script src="../../jyhngw/js/city-picker.js"></script>
+    <script src="../../jyhngw/js/area.js"></script>
+    <script src="../../jyhngw/js/main.js"></script>
+
+    <script src="../../jyhngw/js/spin.min.js"></script>
+	<script src="../../jyhngw/js/ladda.min.js"></script>
+    <!-- <script src="./js/common.js"> </script> -->
+    <script>
+        $(function(){
+            let identification = "",isShowCode = 0,params = {}
+            var ua = navigator.userAgent.toLocaleLowerCase();
+            var pf = navigator.platform.toLocaleLowerCase();
+            var isAndroid = (/android/i).test(ua)||((/iPhone|iPod|iPad/i).test(ua) && (/linux/i).test(pf))
+                || (/ucweb.*linux/i.test(ua));
+            var isIOS =(/iPhone|iPod|iPad/i).test(ua) && !isAndroid;
+            var isWinPhone = (/Windows Phone|ZuneWP7/i).test(ua);
+            if(isAndroid || isIOS){
+                $(".pc").hide()
+                $(".mobile").show()
+            }else{
+                $(".pc").show()
+                $(".mobile").hide()
+            }
+            $(".buyGoods").on("click",function(event){
+                let formData = $('#dataForm').serialize()
+                let data = decodeURIComponent(formData).split("&")
+
+                event.preventDefault();
+                let msg = data.map(res=>{
+                    let resArr = res.split("=")
+                    let obj = {}
+                    let propname = resArr[0]
+                    obj[propname] = resArr[1]
+                    return obj
+                })
+
+                let isReq = 0;obj = {}
+                msg.forEach(res=>{
+                    obj = Object.assign({},obj,res)
+                })
+                obj.phoneCode = obj.phoneCode?obj.phoneCode:''
+                for(let i in obj){
+                    if(!obj[i] && i !== 'postCode'){
+                        $(`[data-toggle="${i}"]`).show()
+                        if(isAndroid || isIOS){
+                            $(`[data-toggle="region0"]`).hide()//pc
+                        }else{
+                            $(`[data-toggle="region1"]`).hide()//moble
+                        }
+                        isReq++
+                    }else{
+                        $(`[data-toggle="${i}"]`).hide()
+                        switch (i) {
+                            case 'phoneNumber':
+                                if(!(/^1[3456789]\d{9}$/.test(obj[i]))){
+                                    // console.log("这是错误内容")
+                                    $(`[data-toggle="${i}"]`).html('请输入正确手机号')
+                                    $(`[data-toggle="${i}"]`).show()
+                                    isReq++
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                if(!isReq){
+                    let msgObj = {}
+                    msg.forEach(res=>{
+                        msgObj = Object.assign({},msgObj,res)
+                    })
+                    let region = ""
+                    if(isAndroid || isIOS){
+                        region = msgObj.region0
+                    }else{
+                        region = msgObj.region1
+                    }
+                    params = {
+                        areaCode:"+86",
+                        name:msgObj.userName,
+                        phoneNumber:msgObj.phoneNumber,
+                        postalCode:msgObj.postCode,
+                        phoneCode:msgObj.phoneCode,
+                        buyNumber:msgObj.buyNum,
+                        region:region,
+                        detailedAddress:msgObj.address,
+                        productModel:msgObj.productModel,
+                        identification:identification
+                    }
+                    $('#myModal').modal('show')
+                }else{
+                    console.log('不提交')
+                }
+            })
+            Ladda.bind( '.btn-buy', {
+                callback: function( instance ) {
+                    var progress = 0;
+                    progress = Math.min( progress + Math.random() * 0.1, 1 );
+                    instance.setProgress( progress );
+                    $.ajax({
+                        type: "POST",
+                        url: "https://www.easeway.co/manage/customerReserve",
+                        // url:"http://29906e24h1.zicp.vip/manage/customerReserve",
+                        data: JSON.stringify(params),
+                        async:true,
+                        contentType: "application/json;charset=UTF-8",
+                        dataType: "json",
+                        success:function(res){
+                            instance.stop();
+                            $('#myModal').modal('hide')
+                            if(res.errCode === 1){
+                                let data = res.data.orderUuid;
+                                window.location.href="../../jyhngw/buysuccess.html?id="+data
+                            }else{
+                                $("#myAlert2").show();
+                                $(".errText").html(res.errMsg)
+                                setTimeout(function(){
+                                    $("#myAlert2").hide();
+                                },3000)
+                            }
+                        },
+                        error:function (err) {
+                            instance.stop();
+                            $('#myModal').modal('hide')
+                            $("#myAlert2").show();
+                            $(".errText").html("请求错误")
+                            setTimeout(function(){
+                                $("#myAlert2").hide();
+                            },3000)
+                        }
+                    });
+                }
+            });
+            Ladda.bind( '.getCode', {
+                callback: function( instance ) {
+                    var progress = 0;
+                    progress = Math.min( progress + Math.random() * 0.1, 1 );
+                    instance.setProgress( progress );
+                    event.preventDefault();
+                    if(isShowCode){
+                        console.log('停止')
+                        instance.stop();
+                        return
+                    }
+                    let phoneValue =  $("input[ name='phoneNumber']").val()
+                    if(!(/^1[3456789]\d{9}$/.test(phoneValue))){
+                        console.log("这是错误内容")
+                        instance.stop();
+                        $(`[data-toggle="phoneNumber"]`).html('请输入正确手机号')
+                        $(`[data-toggle="phoneNumber"]`).show()
+                    }else{
+                        $(`[data-toggle="phoneNumber"]`).hide()
+                        identification = String(new Date().getTime())
+                        progress = Math.min( progress + Math.random() * 0.1, 1 );
+                        instance.setProgress( progress );
+                        $.ajax({
+                            type: "POST",
+                            url: "https://www.easeway.co/app/getPhoneCode",
+                            // url:"http://29906e24h1.zicp.vip/app/getPhoneCode",
+                            data: JSON.stringify({areaCode:"+86",phoneNumber:phoneValue,identification}),
+                            async:true,
+                            contentType: "application/json;charset=UTF-8",
+                            dataType: "json",
+                            success:function(res){
+                                $('.phoneCode').removeAttr('disabled')
+                                instance.stop();
+                                isShowCode = 120
+                                $(".ladda-code").html(isShowCode)
+                                let isTime = setInterval(function(){
+                                    isShowCode--
+                                    if(isShowCode > 0){
+                                        $(".ladda-code").html(isShowCode)
+                                    }else{
+                                        isShowCode = 0
+                                        $(".ladda-code").html('获取验证码')
+                                        clearInterval(isTime)
+                                    }
+                                },1000)
+                            },
+                            error:function (err) {
+                                instance.stop();
+                                $("#myAlert2").show();
+                                $(".errText").html("请求错误")
+                                setTimeout(function(){
+                                    $("#myAlert2").hide();
+                                },3000)
+                            }
+                        });
+                    }
+                }
+            });
+            //获取手机验证码
+            $(".getCode").on("click",function(){
+                event.preventDefault();
+            })
+            //监听输入框
+            $(".form-control").bind("input propertychange",function(e){
+                let name = e.target.name
+                let value = e.target.value
+                switch (name) {
+                    case 'phoneNumber':
+                        if((/^1[3456789]\d{9}$/.test(value))){
+                            $(`[data-toggle="phoneNumber"]`).hide()
+                        }
+                        break;
+                    default:
+                        if(value){
+                            $(`[data-toggle="${name}"]`).hide()
+                        }
+                        break;
+                }
+            })
+            $(".back").on("click",function(){
+                let name = $('.login-user').html();
+                if(name === '中文'){
+                    window.location.href = "../../jyhngw/index.html"
+                }else{
+                    window.location.href = "../../jyhngw/en/index.html"
+                }
+                
+            })
+        })
+    </script>
+</body>
+</html>

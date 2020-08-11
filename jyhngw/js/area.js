@@ -1,7 +1,7 @@
 ;(function () {
     $.fn.getArea = function (options) {
         var defaults = {
-            jsonUrl: './json/area.json',
+            jsonUrl: '../json/area.json',
             elePage: 'body',
             inpEle: '#getArea',
             areaMask: '.area-larger-mask',
@@ -57,9 +57,7 @@
             getAreaContent();
             // 获取json数据 呼出弹窗
             $(this).on(params.eventInpFocus, function () {
-                console.log("打开弹框")
                 $('.buy').addClass("isBuy")
-                console.log($(".buy"))
                 $.getJSON(params.jsonUrl, function(data){
                     $('.area-province-scroll').empty();
                     params.areaData = data[0];
@@ -173,8 +171,6 @@
                         // 保存市
                         saveareaMsg(1, -params.scrollNum);
                         params.scrollCity = -params.scrollNum;
-                        console.log(-params.scrollNum)
-                        console.log(params.cityList[-params.scrollNum])
                         params.regionList = params.cityList[-params.scrollNum].areaVOList;
                         // 加载区
                         loadAreaList(areaIndex + 1, params.regionList);

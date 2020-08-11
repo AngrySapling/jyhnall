@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="./images/icon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/buy.css">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link href="./css/city-picker.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="./css/area.css">
-    <link rel="stylesheet" href="./css/ladda-themeless.min.css">
+    <link rel="icon" href="../jyhngw/images/icon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../jyhngw/css/common.css">
+    <link rel="stylesheet" href="../jyhngw/css/buy.css">
+    <link rel="stylesheet" href="../jyhngw/css/bootstrap.min.css">
+    <link href="../jyhngw/css/city-picker.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../jyhngw/css/area.css">
+    <link rel="stylesheet" href="../jyhngw/css/ladda-themeless.min.css">
     <style>
         .confirm-area-control{
             float: right !important;
@@ -52,7 +52,7 @@
             text-decoration: line-through;
         }
         .sp2{
-            padding: 10px;
+            padding: 5px;
             font-size: 1.4rem;
         }
         .label-sp1{
@@ -60,24 +60,25 @@
         }
     </style>
     <title>简易慧能</title>
-    <!--[if IE]>   
-        <script src=”http://html5shiv.googlecode.com/svn/trunk/html5.js”></script>   
+    <!--[if IE]>
+        <script src=”http://html5shiv.googlecode.com/svn/trunk/html5.js”></script>
     < ![endif]-->
 </head>
 <body>
     <!-- 头部 -->
     <header class="open">
-        <p class="back">
-            返回官网 
+        <p class="back" style="cursor: pointer;">
+            返回官网
         </p>
     </header>
+
     <div id="myAlert2" class="alert alert-warning">
         <!-- <a href="#" class="close" data-dismiss="alert">&times;</a> -->
         <strong>ERR！</strong><span class="errText"></span>
     </div>
     <!-- 购买 -->
     <div class="buy">
-        <form id="dataForm">
+        <form id="dataForm-buy">
             <div class="form-group row">
                 <label for="exampleInputEmail1" class="col-sm-3 col-form-label"><span class="label-sp1">*</span> 姓名</label>
                 <div class="col-sm-9" >
@@ -150,7 +151,7 @@
             </div>
             <small id="emailHelp" style="color:red;"  >* 产品按批次预定，达到一定批量后会有销售人员联系您有关付款事宜，请保持手机畅通</small>
             <button class="btn btn-primary buyGoods" οnclick="submitForm()" data-target="#exampleModal">预定</button>
-            <small id="emailHelp" class="price" >2020年7月1日前 <span class="sp1">2480元</span> <span class="sp2">1200元</span> </small>
+            <small id="emailHelp" class="price" >价格： <span class="sp2">1980元</span> </small>
         </form>
         <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -177,15 +178,15 @@
         <div class="warp">
             <div class="bottom">
                 <div class="bottom1">
-                    <a spm-d="1" href="./introduce.html">关于简易</a>
+                    <a spm-d="1" href="../jyhngw/introduce.html">关于简易</a>
                     <i>|</i>
                     <a spm-d="2" href="https://www.easeway.co/jyhnadmin/index.html">后台管理</a>
                     <i>|</i>
                     <!-- <a spm-d="3" href="#">联系我们</a>
                     <i>|</i> -->
-                    <a spm-d="4" href="./tec.html?par=1&id=2&styleId=0">帮助中心</a>
+                    <a spm-d="4" href="../jyhngw/tec.html?par=1&id=2&styleId=0">帮助中心</a>
                     <i>|</i>
-                    <a spm-d="5" href="./app.html">app下载</a>
+                    <a spm-d="5" href="../jyhngw/app.html">app下载</a>
                 </div>
                 <div class="bottom1">
                     <span>京ICP备19057231号-1</span>
@@ -196,16 +197,16 @@
         </div>
 
     </footer>
-    <script src="./js/jquery.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/bootstrap.bundle.min.js"></script>
-    <script src="./js/city-picker.data.js"></script>
-    <script src="./js/city-picker.js"></script>
-    <script src="./js/area.js"></script>
-    <script src="./js/main.js"></script>
-    
-    <script src="./js/spin.min.js"></script>
-	<script src="./js/ladda.min.js"></script>
+    <script src="../jyhngw/js/jquery.min.js"></script>
+    <script src="../jyhngw/js/bootstrap.min.js"></script>
+    <script src="../jyhngw/js/bootstrap.bundle.min.js"></script>
+    <script src="../jyhngw/js/city-picker.data.js"></script>
+    <script src="../jyhngw/js/city-picker.js"></script>
+    <script src="../jyhngw/js/area.js"></script>
+    <script src="../jyhngw/js/main.js"></script>
+
+    <script src="../jyhngw/js/spin.min.js"></script>
+	<script src="../jyhngw/js/ladda.min.js"></script>
     <!-- <script src="./js/common.js"> </script> -->
     <script>
         $(function(){
@@ -226,7 +227,7 @@
             $(".buyGoods").on("click",function(event){
                 let formData = $('#dataForm').serialize()
                 let data = decodeURIComponent(formData).split("&")
-               
+
                 event.preventDefault();
                 let msg = data.map(res=>{
                     let resArr = res.split("=")
@@ -235,7 +236,7 @@
                     obj[propname] = resArr[1]
                     return obj
                 })
-               
+
                 let isReq = 0;obj = {}
                 msg.forEach(res=>{
                     obj = Object.assign({},obj,res)
@@ -254,12 +255,12 @@
                         $(`[data-toggle="${i}"]`).hide()
                         switch (i) {
                             case 'phoneNumber':
-                                if(!(/^1[3456789]\d{9}$/.test(obj[i]))){ 
+                                if(!(/^1[3456789]\d{9}$/.test(obj[i]))){
                                     console.log("这是错误内容")
                                     $(`[data-toggle="${i}"]`).html('请输入正确手机号')
                                     $(`[data-toggle="${i}"]`).show()
                                     isReq++
-                                } 
+                                }
                                 break;
                             default:
                                 break;
@@ -314,7 +315,7 @@
                             console.log(res,'res')
                             if(res.errCode === 1){
                                 let data = res.data.orderUuid;
-                                window.location.href="./buysuccess.html?id="+data
+                                window.location.href="../jyhngw/buysuccess.html?id="+data
                             }else{
                                 $("#myAlert2").show();
                                 $(".errText").html(res.errMsg)
@@ -343,12 +344,12 @@
                     instance.setProgress( progress );
                     event.preventDefault();
                     if(isShowCode){
-                        console.log('停止') 
+                        console.log('停止')
                         instance.stop();
                         return
                     }
                     let phoneValue =  $("input[ name='phoneNumber']").val()
-                    if(!(/^1[3456789]\d{9}$/.test(phoneValue))){ 
+                    if(!(/^1[3456789]\d{9}$/.test(phoneValue))){
                         console.log("这是错误内容")
                         instance.stop();
                         $(`[data-toggle="phoneNumber"]`).html('请输入正确手机号')
@@ -406,9 +407,9 @@
                 let value = e.target.value
                 switch (name) {
                     case 'phoneNumber':
-                        if((/^1[3456789]\d{9}$/.test(value))){ 
+                        if((/^1[3456789]\d{9}$/.test(value))){
                             $(`[data-toggle="phoneNumber"]`).hide()
-                        } 
+                        }
                         break;
                     default:
                         if(value){
@@ -418,7 +419,7 @@
                 }
             })
             $(".back").on("click",function(){
-                window.location.href = "./index.html"
+                window.location.href = "../jyhngw/index.html"
             })
         })
     </script>

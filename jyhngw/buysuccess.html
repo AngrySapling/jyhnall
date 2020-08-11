@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="./images/icon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/buy.css">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="icon" href="../jyhngw/images/icon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../jyhngw/css/common.css">
+    <link rel="stylesheet" href="../jyhngw/css/buy.css">
+    <link rel="stylesheet" href="../jyhngw/css/bootstrap.min.css">
     <title>简易慧能</title>
     <style>
         .buy{
@@ -37,7 +37,7 @@
         }
         .order{
             max-width: 20rem !important;
-            
+
         }
         .order li{
             padding:5px 0;
@@ -70,32 +70,32 @@
             max-width: 80% !important;
         }
     </style>
-    <!--[if IE]>   
-        <script src=”http://html5shiv.googlecode.com/svn/trunk/html5.js”></script>   
+    <!--[if IE]>
+        <script src=”http://html5shiv.googlecode.com/svn/trunk/html5.js”></script>
     < ![endif]-->
 </head>
 <body>
     <!-- 头部 -->
     <header class="open">
-        <p class="back">
-            返回官网 
+        <p class="back" style="cursor: pointer;">
+            返回官网
         </p>
     </header>
     <!-- 购买 -->
     <div class="buy">
         <div class="alert alert-success" role="alert">
                 <div class="alert-content">
-                    <img src="./images/success.png" alt="">
+                    <img src="../jyhngw/images/success.png" alt="">
                     <p>商品预约成功</p>
                 </div>
           </div>
         <ul class="order">
-            
+
             <li>
                 <span>产品型号:</span>
                 <span class="goods"></span>
             </li>
-            
+
             <li>
                 <span>购买数量:</span>
                 <span class="num"></span>
@@ -111,7 +111,7 @@
         </ul>
         <ul class="order-btn">
             <li>
-                <a href="./index.html"><p class="order-back">返回首页>></p></a>    
+                <a href="../jyhngw/index.html"><p class="order-back">返回首页>></p></a>
             </li>
         </ul>
         <p class="order tips">
@@ -123,15 +123,15 @@
         <div class="warp">
             <div class="bottom">
                 <div class="bottom1">
-                    <a spm-d="1" href="./introduce.html">关于简易</a>
+                    <a spm-d="1" href="../jyhngw/introduce.html">关于简易</a>
                     <i>|</i>
                     <a spm-d="2" href="https://www.easeway.co/jyhnadmin/index.html">后台管理</a>
                     <i>|</i>
                     <!-- <a spm-d="3" href="#">联系我们</a>
                     <i>|</i> -->
-                    <a spm-d="4" href="./tec.html?par=1&id=2&styleId=0">帮助中心</a>
+                    <a spm-d="4" href="../jyhngw/tec.html?par=1&id=2&styleId=0">帮助中心</a>
                     <i>|</i>
-                    <a spm-d="5" href="./app.html">app下载</a>
+                    <a spm-d="5" href="../jyhngw/app.html">app下载</a>
                 </div>
                 <div class="bottom1">
                     <span>京ICP备19057231号-1</span>
@@ -142,8 +142,8 @@
         </div>
 
     </footer>
-    <script src="./js/jquery.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
+    <script src="../jyhngw/js/jquery.min.js"></script>
+    <script src="../jyhngw/js/bootstrap.min.js"></script>
     <!-- <script src="./js/main.js"></script> -->
     <script>
         $(document).ready(function(){
@@ -163,7 +163,7 @@
                         if(data.customerCreateTime){
                             date = formatDate(new Date(data.customerCreateTime))
                         }
-                        
+
                         $(".orderId").html('No.'+data.orderNo)
                         $(".date").html(date)
                         $(".goods").html(data.productModel)
@@ -185,7 +185,7 @@
                 return year+"-"+month+"-"+date+" "+hour+":"+minute+":"+second;
             }
             $(".back").on("click",function(){
-                window.location.href = "./index.html"
+                window.location.href = "../jyhngw/index.html"
             })
         });
     </script>

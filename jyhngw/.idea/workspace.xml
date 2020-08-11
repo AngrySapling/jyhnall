@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a605f084-d92c-43d3-b071-eb5da175425e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../../../.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../../.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../test/java/com/example/demo/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/Interceptor/ConstUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/Interceptor/ErrCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/Interceptor/IdentityVerification.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/Interceptor/LoginConstant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/Interceptor/LoginIntercepor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/Interceptor/MySpringMVCConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/Interceptor/RestResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/MVCConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/apppush/AppPush.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/apppush/Tui.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/AdminPermissionEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/AdminRoleEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/AdminRolePermissionEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/AdminUserEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/AdminUserRoleEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/AppUserEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/BoxEvalEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/BoxEvalLogEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/BoxHostBatchEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/BoxHostLogEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/BoxHostTakeLogEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/BoxHostUserEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/BoxHostUserLogEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/BoxPatternEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/BoxPatternLogEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/BoxPillEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/BoxPillLogEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/BoxPillMessagesEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/BoxPillMessagesLogEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/BoxPillMessagesUpdateLogEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/BoxProblemTypeEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/BoxRemindSetEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/BoxRemindSetLogEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/BoxSystemSetEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/BoxSystemSetLogEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/BoxTemperatureHumidityEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/BoxTemperatureHumidityLogEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/BoxUpdateLogEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/FormerNowUpdateLogEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/NotPunctualLogEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/PcCustomerEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/PcCustomerFeedbackEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/PcCustomerFeedbackLogEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/bean/WechatEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/common/CommonListResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/common/CommonResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/common/PasswordHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/common/RoleTypeEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/controller/EvalController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/controller/FeedbackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../java/com/example/demo/controller/FeedbackController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/controller/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/controller/PermissionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/controller/RoleController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/controller/UploadController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/controller/WechatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../java/com/example/demo/controller/WechatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/dto/BoxHoseRemindDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/dto/BoxHostUserDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/dto/BoxPatternLogEntityDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/dto/BoxRemindSetDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/dto/BoxSystemSetDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/dto/CustomerEvalDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/dto/DrugHandsDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/dto/DrugHostUserInfoDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/dto/FeedbackUserTypeDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/dto/HostUserMedicineDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/dto/HostUserPillDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/dto/PermissionDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/dto/ProblemTypeDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/dto/RoleDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/dto/StatusDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/dto/SystemSetDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/dto/TakePillDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/dto/TimeSearchDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/dto/UserDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/dto/UserLogDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/dto/UserPasswordDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/entity/AppUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/entity/DrugEvaluation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/entity/DrugHost.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/entity/DrugHostFault.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/entity/DrugMedicineStorehouse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/entity/DrugPermission.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/entity/DrugPill.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/entity/DrugRecording.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/entity/DrugRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/entity/DrugRolePermission.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/entity/DrugUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/entity/DrugUserRole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/entity/Feedback.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/entity/FeedbackLogin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/entity/HostLog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/entity/HostUserInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/entity/IpAddress.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/entity/IpVo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/entity/ProblemType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/entity/UserInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/entity/Wechat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/jpush/JpushConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/mapper/DrugRecordingMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/mapper/HostLogMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/mapper/UserInfoMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/redis/RedisCache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/redis/RedisCacheManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/redis/RedisManager11.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/redis/RedisSessionDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/redis/SerializeUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/run/BasicInitRun.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/run/OutRemindingTimeTimer1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/run/OutRemindingTimeTimer2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/run/SystemInitRun.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/service/HostLogService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/service/JpushService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/service/UploadService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/service/impl/HostLogServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/service/impl/JoushServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/service/impl/JpushServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/service/impl/UploadServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/service/impl/UserInfoServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/shiro/shiro/ShiroConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/shiro/shiro/credentials/RetryLimitHashedCredentialsMatcher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/shiro/shiro/filter/UserFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/signar/chat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/socket/HostEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../java/com/example/demo/socket/HostEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/socket/SocketTimerEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/util/AppPush.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/util/ArrayReader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/util/DstServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/util/FtpJSch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/util/FtpUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/util/FtpUtil2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/util/GenerateID.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/util/HandelClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/util/HttpRequestUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/util/IDUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/util/ImageUpload.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/util/JsonReader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/util/Reader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/util/RedisTokenHelp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/util/ServiceUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/util/ShopUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/util/StringMD5Util.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/util/TreeUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/util/UrlJson.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/util/ValiUploadFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/util/XmlUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../java/com/example/demo/util/tt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../identityverification.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/asset-manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/assets/images/01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/assets/images/02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/assets/images/03.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/assets/images/04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/assets/images/icon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/assets/images/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/assets/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/precache-manifest.41fcaa34036d70c9282539b2ebdc9abd.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/service-worker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/static/css/2.d7262850.chunk.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/static/css/2.d7262850.chunk.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/static/css/main.d649d3c0.chunk.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/static/css/main.d649d3c0.chunk.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/static/js/2.30dbdfa9.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/static/js/2.30dbdfa9.chunk.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/static/js/2.30dbdfa9.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/static/js/main.cb31d03f.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/static/js/main.cb31d03f.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/static/js/runtime-main.abc3f4f2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/static/js/runtime-main.abc3f4f2.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/static/media/icon.0518c547.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jyhnadmin/static/media/logo.23fdbdfc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/app.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/introduce.html" beforeDir="false" afterPath="$PROJECT_DIR$/introduce.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tec.html" beforeDir="false" afterPath="$PROJECT_DIR$/tec.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/java/com/example/demo/CountDownUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/java/com/example/demo/Query.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/java/com/example/demo/SwitchTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/java/com/example/demo/dingShiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/java/com/example/demo/testFilePath.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/java/com/example/demo/testHide.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/java/com/example/demo/timeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../test/java/com/example/demo/tt.java" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="2082753508">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="html" value="7" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="HTML" value="7" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="41" column="86" selection-start-line="41" selection-start-column="86" selection-end-line="41" selection-end-column="86" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/buy.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2175" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/buysuccess.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1125" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/introduce.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="500">
+              <caret line="65" selection-start-line="65" selection-end-line="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/searchorder.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4950" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tec.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="71" column="17" lean-forward="true" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/introduce.html" />
+        <option value="$PROJECT_DIR$/tec.html" />
+        <option value="$PROJECT_DIR$/app.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-12" />
+    <option name="y" value="-12" />
+    <option name="width" value="1944" />
+    <option name="height" value="1104" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="jyhngw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jyhngw" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../.." />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a605f084-d92c-43d3-b071-eb5da175425e" name="Default Changelist" comment="" />
+      <created>1591238482281</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591238482281</updated>
+      <workItem from="1591238483677" duration="1841000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1841000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1938046" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/buy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2175" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/buysuccess.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1125" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tec.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="71" column="17" lean-forward="true" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/searchorder.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4950" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/introduce.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="41" column="86" selection-start-line="41" selection-start-column="86" selection-end-line="41" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
