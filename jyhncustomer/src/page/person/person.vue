@@ -44,7 +44,7 @@
 </template>
 <script>
 import CardPerson from '@/components/cardPerson'
-import order from '@/api/order.js'
+// import order from '@/api/order.js'
 import user from '@/api/user.js'
 import radom from '@/utils/radom'
 import md5 from 'js-md5'

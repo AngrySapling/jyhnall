@@ -36,12 +36,12 @@
     height: 45px;
     line-height: 45px;
     color: #fff;
-    text-indent: 60px;
+    text-indent: 50px;
     /*border-bottom: 1px solid #ddd; */
     font-size: 14px;
      transition:all 1s ease 0s;
  }
- .treebox{ width: 180px; margin: 0 auto; background-color:#62c3c2; }
+ .treebox{ width: 200px; margin: 0 auto; background-color:#62c3c2; }
  .menu{ overflow: hidden; border-color: #ddd; border-style: solid ; border-width: 0 1px 1px ; }
  #contentItem{
     flex: 1;

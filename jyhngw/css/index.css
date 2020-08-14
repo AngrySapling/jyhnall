@@ -45,6 +45,8 @@
 .product .goods .pro-title{
     margin-bottom: 0.3rem;
     font-size: 0.4rem;
+    width: 90%;
+    margin: 0 auto;
 }
 .product .goods .pro-info{
     font-size: 0.2rem;

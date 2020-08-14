@@ -82,14 +82,10 @@
         recalc();
     }
 
-    $(".nav-li").on("click",function(){
-        isShow = !isShow
-        if(!isShow){
-            $(this).children(".nav-child").slideDown()
-        }else{
-            $(this).children(".nav-child").slideUp()
-        }
-
+    $(".nav-li").hover(function(){
+        $(this).children(".nav-child").stop(true,true).slideDown()
+    },function(){
+        $(this).children(".nav-child").stop(true,true).slideUp()
     })
     recalc();
 })(document, window);

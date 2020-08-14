@@ -154,6 +154,20 @@ header{
 header .nav-li{
     display: inline-block;
     position: relative;
+    margin: 0 15px;
+    height: 100%;
+    font-size:14px ;
+    padding: 15px 10px;
+    box-sizing: border-box;
+    line-height: 1;
+    transition:all .2s linear;
+    cursor: pointer;
+}
+.nav-color{
+    border-bottom: 2px solid #109aff;
+}
+header{
+    z-index: 1001;
 }
 header .nav-li .nav-child{
     border: 1px solid #ccc;
@@ -163,14 +177,29 @@ header .nav-li .nav-child{
     width: 140px;
     position: absolute;
     left: 0;
-    top: 20px;
     display: none;
+    top: 44px;
+    animation: fadeIn 0.5s linear;
+    animation-fill-mode:forwards;
+    opacity: 0;
+    z-index: 1001;
 }
 header .nav-li .nav-child li{
     padding-left: 10px;
     border-bottom: 1px solid #f5f5f5;
     height: 25px;
     line-height: 25px;
+}
+@keyframes fadeIn{
+    0% {
+            opacity: 0; /*初始状态 透明度为0*/
+        }
+        50% {
+            opacity: 0.5; /*中间状态 透明度为0*/
+        }
+        100% {
+            opacity: 1; /*结尾状态 透明度为1*/
+        }
 }
 header .nav-li .nav-child li:last-child{
     border-bottom: none;
@@ -197,9 +226,6 @@ header .nav li  .login-user{
 }
 header .nav li  .login-user:hover{
     color: #ADD8E6;
-}
-header .nav .nav-li{
-    margin: 0 20px;
 }
 header .burger{
     display: none;
@@ -229,6 +255,28 @@ header .burger{
         justify-self: end;
         flex: 1;
         justify-content: flex-end;
+    }
+    header .nav-li::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 0;
+        height: 100%;
+        border-bottom: 2px solid #109aff;
+        transition: 0.4s all linear;
+    }
+    header .nav-li:hover::before{
+        width: 100%;
+        top: 0;
+        left: 0;
+        transition-delay: 0.1s;
+        border-bottom-color: #109aff;
+        z-index: -1;
+    }
+    
+    header .nav-li:hover ~.nav-li::before{
+        left: 0;
     }
 }
 @media (max-width:1100px){
@@ -301,6 +349,7 @@ header .burger{
         left: 0;
         top: 60px;
         width: 100vw;
+        z-index:1002;
         background: #fff;
         animation: slideDown 0.6s ease-out 0.4s;
         border-bottom: 1px solid #ccc;
@@ -338,6 +387,9 @@ header .burger{
     /* 底部 */
 }
 @media(max-width:750px){
+    header .nav-li {
+        padding: 10px;
+    }
     .footer .warp .footer-list{
         display: none !important;
     }

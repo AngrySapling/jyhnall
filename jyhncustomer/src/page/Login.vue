@@ -2,7 +2,7 @@
     <div class="login">
         <Form ref="formInline" :model="formInline" :rules="ruleInline" inline >
             <FormItem prop="phoneNumber">
-                <Input type="text" v-model="formInline.phoneNumber" placeholder="用户名">
+                <Input type="text" v-model="formInline.phoneNumber" :placeholder="I1n8">
                     <Icon type="ios-person-outline" slot="prepend"></Icon>
                 </Input>
             </FormItem>
@@ -44,6 +44,14 @@ export default {
                 ]
             }
         }
+    },
+    computed: {
+        I1n8(){
+            return this.$i18nMsg()
+        }
+    },
+    mounted() {
+        console.log(this.I1n8)
     },
     methods: {
         handleSubmit(name) {
