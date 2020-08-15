@@ -10,7 +10,8 @@ module.exports = {
         'Sign in',
         'forget',
         'No account',
-        'Register'
+        'Register',
+        "Back Home"
     ],
     carts:['Personal Info', 'Name', 'Phone', 'Email', 'SerialNumber', 'New feedback', 'My feedback'],
     register:['Phone number','VF Code','Get VF  Code','Password','Please re-enter your password','Name','Email','Device serial number','Register','Accounts already held?','Sign in'],

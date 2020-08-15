@@ -1,4 +1,10 @@
 (function (doc, win) {
+    let lan = $('.en-ch').html()
+    if(lan === 'EN'){
+        window.localStorage.setItem('user_lang','en')
+    }else{
+        window.localStorage.setItem('user_lang','cn')
+    }
     function getCookie(c_name) {
         if(document.cookie.length > 0) {
             c_start = document.cookie.indexOf(c_name + "=");//获取字符串的起点
@@ -81,7 +87,7 @@
     window.onload = function () {
         recalc();
     }
-
+    
     $(".nav-li").hover(function(){
         $(this).children(".nav-child").stop(true,true).slideDown()
     },function(){

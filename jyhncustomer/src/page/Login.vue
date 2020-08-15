@@ -1,5 +1,6 @@
 <template>
     <div class="login">
+        <div class="back" @click="back">{{I18n.login[6]}}</div>
         <Form ref="formInline" :model="formInline" :rules="ruleInline" inline >
             <FormItem prop="phoneNumber">
                 <Input type="text" v-model="formInline.phoneNumber" :placeholder="I18n.login[0]">
@@ -46,10 +47,17 @@ export default {
         }
     },
     mounted() {
-        console.log(this.I18n)
-        this.ruleInline.phoneNumber
     },
     methods: {
+        back(){
+            let local = window.localStorage.getItem('user_lang')   // 语言标识
+            if(local === 'cn'){
+                window.location.href="/jyhngw/index.html"
+            }else{
+                window.location.href="/jyhngw/en/index.html"
+            }
+            
+        },
         handleSubmit(name) {
             this.$refs[name].validate(async (valid) => {
                 if (valid) {
@@ -74,19 +82,30 @@ export default {
 </script>
 <style lang="less">
   .login{
-      height: 100vh;
-      display: flex;
-      justify-content: center;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
         background:#f5f5f5;
-      align-items: center;
-      .ivu-form{
-          width: 350px;
-          padding:20px 30px;
-          border-radius:5px;
-          background: #ffffff;
-          .ivu-form-item{
-              display: block !important;
-          }
-      }
+        align-items: center;
+        .ivu-form{
+            width: 350px;
+            padding:20px 30px;
+            border-radius:5px;
+            background: #ffffff;
+            .ivu-form-item{
+                display: block !important;
+            }
+        }
+        .back{
+            position: absolute;
+            cursor: pointer;
+            color: #fff;
+            top:0;
+            left: 0;
+            width: 100%;
+            line-height: 40px;
+            height: 40px;
+            background: rgba(0,0,0,0.3);
+        }
   }  
 </style>

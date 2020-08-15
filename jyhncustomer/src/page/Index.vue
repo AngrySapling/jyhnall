@@ -3,8 +3,8 @@
         <Layout>
             <Header>
                 <Menu mode="horizontal" theme="light" :active-name="activeRoute" >
-                    <div :class="isShow?'phoneClass':'layout-logo'">
-                        <a href="https://www.easeway.co/">
+                    <div :class="isShow?'phoneClass':'layout-logo'" @click="back">
+                        <a href="javascript:;">
                             <img src="@/assets/images/icon0.png" alt="">
                         </a>
                     </div>
@@ -119,6 +119,14 @@ export default {
         }
     },
     methods: {
+        back(){
+            let local = window.localStorage.getItem('user_lang')   // 语言标识
+            if(local === 'cn'){
+                window.location.href="/jyhngw/index.html"
+            }else{
+                window.location.href="/jyhngw/en/index.html"
+            }
+        },
         quit(){
             //删除token
             removeToken()

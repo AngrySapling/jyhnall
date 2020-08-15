@@ -20,7 +20,7 @@ const i18n = new VueI18n({
   },
 })
 Vue.prototype._i18n = i18n    
-Vue.prototype.$i18nMsg = function(){  
+Vue.prototype.$i18nMsg = function(){    
   return i18n.messages[i18n.locale]  
 }  
 Vue.prototype._i18n = i18n    
