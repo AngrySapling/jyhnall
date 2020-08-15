@@ -2,21 +2,21 @@
     <div class="login">
         <Form ref="formInline" :model="formInline" :rules="ruleInline" inline >
             <FormItem prop="phoneNumber">
-                <Input type="text" v-model="formInline.phoneNumber" :placeholder="I1n8">
+                <Input type="text" v-model="formInline.phoneNumber" :placeholder="I18n.login[0]">
                     <Icon type="ios-person-outline" slot="prepend"></Icon>
                 </Input>
             </FormItem>
             <FormItem prop="feedbackPassword">
-                <Input type="password" v-model="formInline.feedbackPassword" placeholder="密码">
+                <Input type="password" v-model="formInline.feedbackPassword" :placeholder="I18n.login[1]">
                     <Icon type="ios-lock-outline" slot="prepend"></Icon>
                 </Input>
             </FormItem>
             <FormItem>
-                <Button type="success" :loading="loading" long @click="handleSubmit('formInline')">登录</Button>
+                <Button type="success" :loading="loading" long @click="handleSubmit('formInline')">{{I18n.login[2]}}</Button>
             </FormItem>
             <div class="dev-sign-main-aside-tip">
-                <p><router-link to="/pwd">忘记密码？</router-link></p> 
-                <p>尚未拥有账户？<router-link to="/reg">注册</router-link></p>
+                <p><router-link to="/pwd">{{I18n.login[3]}}?</router-link></p> 
+                <p>{{I18n.login[4]}}?<router-link to="/reg">{{I18n.login[5]}}</router-link></p>
             </div>
         </Form>
     </div>
@@ -36,22 +36,18 @@ export default {
             },
             ruleInline: {
                 phoneNumber: [
-                    { required: true, message: '请输入用户名', trigger: 'blur' }
+                    { required: true, message:this.$i18nMsg().tips.login[0], trigger: 'blur' }
                 ],
                 feedbackPassword: [
-                    { required: true, message: '请输入密码', trigger: 'blur' },
-                    { type: 'string', min: 6, message: '密码至少8位', trigger: 'blur' }
+                    { required: true, message:this.$i18nMsg().tips.login[1], trigger: 'blur' },
+                    { type: 'string', min: 6, message:this.$i18nMsg().tips.login[2], trigger: 'blur' }
                 ]
             }
         }
     },
-    computed: {
-        I1n8(){
-            return this.$i18nMsg()
-        }
-    },
     mounted() {
-        console.log(this.I1n8)
+        console.log(this.I18n)
+        this.ruleInline.phoneNumber
     },
     methods: {
         handleSubmit(name) {
@@ -63,7 +59,7 @@ export default {
                     let result = await feedback.feedbackLogin(data)
                     this.loading = false
                     if(result && result.data){
-                        this.$Message.success('登录成功');
+                        this.$Message.success(this.I18n.tips.login[3]);
                         let data = result.data
                         setToken(data.token)
                         this.$router.push("/feedback")

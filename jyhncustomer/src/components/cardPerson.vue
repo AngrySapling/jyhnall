@@ -1,17 +1,17 @@
 <template>
     <div>
         <Card :bordered="false">
-            <p slot="title">个人信息</p>
-            <p class="msg"><span class="msg-title">姓名:</span><span class="msg-content">{{userMsg.feedbackName}}</span></p>
-            <p class="msg"><span class="msg-title">手机号:</span><span class="msg-content">{{userMsg.phoneNumber}}</span></p>
-            <p class="msg"><span class="msg-title">邮箱:</span><span class="msg-content">{{userMsg.feedbackEmail}}</span></p>
-            <p class="msg"><span class="msg-title">设备序列号:</span ><span class="msg-content">{{userMsg.hostNumber || userMsg.serialNumber}}</span></p>
+            <p slot="title">{{I18n.carts[0]}}</p>
+            <p class="msg"><span class="msg-title">{{I18n.carts[1]}}:</span><span class="msg-content">{{userMsg.feedbackName}}</span></p>
+            <p class="msg"><span class="msg-title">{{I18n.carts[2]}}:</span><span class="msg-content">{{userMsg.phoneNumber}}</span></p>
+            <p class="msg"><span class="msg-title">{{I18n.carts[3]}}:</span><span class="msg-content">{{userMsg.feedbackEmail}}</span></p>
+            <p class="msg"><span class="msg-title">{{I18n.carts[4]}}:</span ><span class="msg-content">{{userMsg.hostNumber || userMsg.serialNumber}}</span></p>
         </Card>
     <Card :bordered="false" style="margin-top:10px;" v-if="showback">
             <p slot="title">{{title}}</p>
-            <p class="msg"><Button type="primary" long  @click="newBuilt()">新建反馈</Button></p>
+            <p class="msg"><Button type="primary" long  @click="newBuilt()">{{I18n.carts[5]}}</Button></p>
             <div class="myquest">
-                <h4>我的反馈:</h4>
+                <h4>{{I18n.carts[6]}}:</h4>
                 <ul >
                     <li @click="toDetail(item.backUuid)" class="item" v-for="(item,index) in backList" :key="index">{{item.type}}</li>
                 </ul>

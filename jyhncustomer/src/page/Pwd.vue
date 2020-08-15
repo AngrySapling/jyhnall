@@ -2,23 +2,23 @@
     <div class="pwd">
         <Form :model="formTop" ref="formTop" :rules="ruleValidate" label-position="top" >
             <div class="ivu-card-head"><p>
-                重置密码
+                {{I18n.pwd[0]}}
             </p></div>
-            <FormItem label="手机号" prop="phoneNumber" >
+            <FormItem :label="I18n.pwd[1]" prop="phoneNumber" >
                 <Input v-model="formTop.phoneNumber"></Input>
             </FormItem>
-            <FormItem label="验证码" prop="phoneCode">
+            <FormItem :label="I18n.pwd[2]" prop="phoneCode">
                 <div  class="code" >
                     <Input v-model="formTop.phoneCode" :disabled="!iptPhoneCode"></Input>
-                    <Button  type="success" @click="getCode" :loading="isloading0">{{time?time:'获取验证码'}}</Button>
+                    <Button  type="success" @click="getCode" :loading="isloading0">{{time?time:I18n.pwd[3]}}</Button>
                 </div>
             </FormItem>
-            <FormItem label="密码" prop="feedbackPassword">
+            <FormItem :label="I18n.pwd[4]" prop="feedbackPassword">
                 <Input type="password" v-model="formTop.feedbackPassword"></Input>
             </FormItem>
             <div class="dev-sign-main-aside">
                 <Button :loading="isloading1"   @click="handleSubmit('formTop')" type="success" long>
-                    <span>确认</span>
+                    <span>{{I18n.pwd[5]}}</span>
                 </Button> 
             </div>
         </Form>
@@ -32,14 +32,14 @@ export default {
     data(){
         const validatePhone = (rule, value, callback) => {
             if (value === '' || !(/^1[3456789]\d{9}$/.test(value))) {
-                callback(new Error('请输入正确手机号'));
+                callback(new Error(this.I18n.tips.login[4]));
             }else{
                 callback();
             }
         };
         const validatePass = (rule, value, callback) => {
             if (value === '') {
-                callback(new Error('请输入你的密码'));
+                callback(new Error(this.$i18nMsg().tips.login[5]));
             } else {
                 
                 if (this.formTop.feedbackPasswordCheck !== '') {
@@ -54,9 +54,9 @@ export default {
 
         const validatePassCheck = (rule, value, callback) => {
             if (value === '') {
-                callback(new Error('请重新输入你的密码'));
+                callback(new Error(this.$i18nMsg().tips.login[6]));
             } else if (value !== this.formTop.feedbackPassword) {
-                callback(new Error('两次密码不一样'));
+                callback(new Error(this.$i18nMsg().tips.login[7]));
             } else {
                 callback();
             }
@@ -76,18 +76,18 @@ export default {
             },
             ruleValidate: {
                 phoneNumber: [
-                    { required: true, message: '请输入手机号', trigger: 'blur' },
+                    { required: true, message: this.$i18nMsg().tips.login[8], trigger: 'blur' },
                     {validator: validatePhone,trigger: 'blur'}
                 ],
                 phoneCode: [
-                    { required: true, message: '请输入手机验证码', trigger: 'blur' }
+                    { required: true, message:  this.$i18nMsg().tips.login[13], trigger: 'blur' }
                 ],
                 feedbackPassword: [
-                { required: true, message: '请输入密码', trigger: 'blur' },
+                { required: true, message: this.$i18nMsg().tips.login[1] , trigger: 'blur' },
                     { validator: validatePass, trigger: 'blur' }
                 ],
                 feedbackPasswordCheck: [
-                    { required: true, message: '请重新输入密码', trigger: 'blur' },
+                    { required: true, message:  this.$i18nMsg().tips.login[6], trigger: 'blur' },
                     { validator: validatePassCheck, trigger: 'blur' }
                 ],
             }
@@ -104,7 +104,7 @@ export default {
                     let result = await user.forgetPassword(data)
                     this.isloading1 = false
                     if(result && result.errCode === 1){
-                        this.$Message.success('密码重置成功');
+                        this.$Message.success( this.$i18nMsg().tips.login[10]);
                         this.$router.push('/login')
                     }
                 } else {
@@ -126,7 +126,7 @@ export default {
                 let result = await user.getPhoneCode(data)
                 this.isloading0 = false
                 if(result && result.data){
-                    this.$Message.success('验证码获取成功');
+                    this.$Message.success( this.$i18nMsg().tips.login[11]);
                     this.time = 120
                     this.iptPhoneCode = true
                     let _this = this

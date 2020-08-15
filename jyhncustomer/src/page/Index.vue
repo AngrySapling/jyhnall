@@ -13,19 +13,19 @@
                         <router-link to="/feedback">
                             <Menu-item name="/feedback">
                                 <Icon type="md-clipboard" />
-                            客户反馈
+                            {{I18n.main[0]}}
                             </Menu-item>
                         </router-link>
                         <router-link to="/evaluate">
                             <Menu-item name="/evaluate">
                                 <Icon type="ios-star" />
-                            客户评价
+                             {{I18n.main[1]}}
                             </Menu-item>
                         </router-link>
                         <router-link to="/order">
                             <Menu-item name="/order">
                                 <Icon type="ios-cart" />
-                                订单管理
+                                {{I18n.main[2]}}
                             </Menu-item>
                         </router-link>
                         <Submenu name="/person">
@@ -33,10 +33,10 @@
                                 {{$store.state.userMsg.feedbackName}}
                             </template>
                                 <router-link to="/person">
-                                    <Menu-item name="/person">个人中心</Menu-item>
+                                    <Menu-item name="/person"> {{I18n.main[4]}}</Menu-item>
                                 </router-link>
                                 <Menu-item name="/quit" >
-                                    <p @click="quit">退出</p> 
+                                    <p @click="quit"> {{I18n.main[5]}}</p> 
                                 </Menu-item>
                         </Submenu>
                     </div>
@@ -50,9 +50,9 @@
                     <router-view v-if='isReload'></router-view>
                 </Content>
                 <Footer class="layout-footer-center"> <div class="bottom1">
-                    <span>京ICP备19057231号-1</span>
+                    <span>{{I18n.main[6]}}</span>
                     <i class="o_xs-hide "> | </i>
-                    <span>Copyright ©2019 简易慧能 版权所有</span>
+                    <span>{{I18n.main[7]}}</span>
                 </div></Footer>
             </Layout>
             
@@ -69,29 +69,29 @@
                         <router-link :class="{'isA':activeRoute === '/feedback'}" to="/feedback">
                             <Menu-item name="/feedback">
                                 <Icon type="md-clipboard" />
-                                客户反馈
+                                {{I18n.main[0]}}
                             </Menu-item>
                         </router-link>
                         <router-link :class="{'isA':activeRoute === '/evaluate'}"  to="/evaluate">
                             <Menu-item name="/evaluate">
                                 <Icon type="ios-star" />
-                                客户评价
+                                {{I18n.main[1]}}
                             </Menu-item>
                         </router-link>
                         <router-link :class="{'isA':activeRoute === '/order'}"  to="/order">
                             <Menu-item name="/order">
                                 <Icon type="ios-cart" />
-                                订单管理
+                                {{I18n.main[2]}}
                             </Menu-item>
                         </router-link>
                         <Submenu name="/person0">
                             <template slot="title">
-                                <Icon type="ios-cog" />账户管理 
+                                <Icon type="ios-cog" />{{I18n.main[3]}} 
                             </template>
                             <router-link :class="{'isA':activeRoute === '/person'}"  to="/person">
-                                <Menu-item name="/person">个人中心</Menu-item>
+                                <Menu-item name="/person">{{I18n.main[4]}}</Menu-item>
                             </router-link>
-                            <Menu-item name="/quit"><p @click="quit">退出</p> </Menu-item>
+                            <Menu-item name="/quit"><p @click="quit">{{I18n.main[5]}}</p> </Menu-item>
                         </Submenu>
                     </Menu>
                 </Col>
@@ -138,16 +138,16 @@ export default {
             let backroute = ""
             switch(route){
                 case '/feedback':
-                    backroute = '客户反馈';
+                    backroute = this.I18n.main[0];
                 break;
                 case '/evaluate':
-                    backroute = '客户评价';
+                    backroute = this.I18n.main[1];
                 break;
                 case '/order':
-                    backroute = '订单管理';
+                    backroute = this.I18n.main[2];
                 break;
                 case '/person':
-                    backroute = '个人中心';
+                    backroute =this.I18n.main[4];
                 break;
             }
             return backroute

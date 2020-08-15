@@ -13,31 +13,31 @@
                         <Row class="order-top">
                             <Col  :xs="24" :sm="12">
                                 <p class="li">
-                                    <span class="sp-title">下单时间:</span>
+                                    <span class="sp-title">{{I18n.order[0]}}:</span>
                                     <span class="sp-content">{{item.customerCreateTime}}</span>
                                 </p>
                             </Col>
                             <Col  :xs="24" :sm="12">
                                 <p class="li">
-                                    <span class="sp-title">订单编号:</span>
+                                    <span class="sp-title">{{I18n.order[1]}}:</span>
                                     <span class="sp-content">No.{{item.orderNo}}</span>
                                 </p>
                             </Col>
                             <Col  :xs="24" :sm="12">
                                 <p class="li">
-                                    <span class="sp-title">订单状态:</span>
+                                    <span class="sp-title">{{I18n.order[2]}}:</span>
                                     <span class="sp-content">{{item.orderStatus === 0?'预约':item.orderStatus === 1?'运输中':'已签收'}}</span>
                                 </p>
                             </Col>
                             <Col  :xs="24" :sm="12">
                                 <p class="li">
-                                    <span class="sp-title">快递信息:</span>
+                                    <span class="sp-title">{{I18n.order[3]}}:</span>
                                     <span class="sp-content">{{item.ExpressType}}</span>
                                 </p>
                             </Col>
                             <Col  :xs="24" :sm="12">
                                 <p class="li">
-                                    <span class="sp-title">快递单号:</span>
+                                    <span class="sp-title">{{I18n.order[4]}}:</span>
                                     <span class="sp-content">{{item.ExpressCode}}</span>
                                 </p>
                             </Col>
@@ -46,19 +46,19 @@
                             <Col :xs="24" :sm="12" >
                                 <div class="content-left">
                                     <p class="li">
-                                        <span class="sp-title">姓名: </span>
+                                        <span class="sp-title">{{I18n.order[5]}}: </span>
                                         <span class="sp-content">{{item.name}}</span>
                                     </p>
                                     <p class="li">
-                                        <span class="sp-title">联系方式: </span>
+                                        <span class="sp-title">{{I18n.order[6]}}: </span>
                                         <span class="sp-content">{{item.phoneNumber}}</span>
                                     </p>
                                     <p class="li">
-                                        <span class="sp-title">地址: </span>
+                                        <span class="sp-title">{{I18n.order[7]}}: </span>
                                         <span class="sp-content">{{item.region+','+item.detailedAddress}}</span>
                                     </p>
                                     <p class="li">
-                                        <span class="sp-title">邮编: </span>
+                                        <span class="sp-title">{{I18n.order[8]}}: </span>
                                         <span class="sp-content">{{item.postalCode}}</span>
                                     </p>
                                 </div>
@@ -66,11 +66,11 @@
                             <Col :xs="24" :sm="12">
                                 <div class="content-right">
                                     <li class="title">
-                                        <p>商品型号</p>
+                                        <p>{{I18n.order[9]}}</p>
                                         <p>{{item.productModel}}</p> 
                                     </li>
                                     <li class="title">
-                                        <p >商品数量</p>
+                                        <p >{{I18n.order[10]}}</p>
                                         <p>{{item.buyNumber}}</p>
                                     </li>
                                 </div>

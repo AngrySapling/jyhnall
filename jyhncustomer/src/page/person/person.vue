@@ -3,35 +3,35 @@
         <Row>
             <Col :xs="24" :sm="10" :md="8" :lg="6"  class="left">
                 <div>
-                    <Card-person title="反馈" :userMsg="userMsg"></Card-person>
+                    <Card-person :title="I18n.person[0]" :userMsg="userMsg"></Card-person>
                 </div>
             </Col>
             <Col :xs="24" :sm="14" :md="16" :lg="18"  class="right">
                <div class="content">
                     <Tabs value="name1">
-                        <TabPane label="绑定设备" name="name1">
+                        <TabPane :label="I18n.person[1]" name="name1">
                             <Form ref="formSeria" :model="formSeria" :rules="ruleSerialNumber" :label-width="100">
-                                <FormItem label="设备序列号" prop="serialNumber">
+                                <FormItem :label="I18n.person[2]" prop="serialNumber">
                                     <Input v-model="formSeria.serialNumber" :disabled="Boolean(userMsg.customerBindStatus)"></Input>
                                 </FormItem>
                                 <FormItem class="btn" v-if="!userMsg.customerBindStatus">
-                                    <Button  type="primary" long :loading="loading1" @click="handleSubmitBind('formSeria')">提交</Button>
+                                    <Button  type="primary" long :loading="loading1" @click="handleSubmitBind('formSeria')">{{I18n.person[3]}}</Button>
                                 </FormItem>
                             </Form>
                         </TabPane>
-                        <TabPane label="修改密码" name="name2">
+                        <TabPane :label="I18n.person[4]" name="name2">
                             <Form ref="formCustom" :model="formCustom" :rules="ruleCustom" :label-width="100">
-                                <FormItem label="原密码" prop="oldPwd">
+                                <FormItem :label="I18n.person[5]" prop="oldPwd">
                                     <Input type="password" v-model="formCustom.oldPwd"></Input>
                                 </FormItem>
-                                <FormItem label="新密码" prop="newPwd">
+                                <FormItem :label="I18n.person[6]" prop="newPwd">
                                     <Input type="password" v-model="formCustom.newPwd"></Input>
                                 </FormItem>
-                                <FormItem label="再次输入新密码" prop="passwdCheck">
+                                <FormItem :label="I18n.person[7]" prop="passwdCheck">
                                     <Input type="password" v-model="formCustom.passwdCheck"></Input>
                                 </FormItem>
                                 <FormItem class="btn">
-                                    <Button  type="primary" long :loading="loading" @click="handleSubmit('formCustom')">提交</Button>
+                                    <Button  type="primary" long :loading="loading" @click="handleSubmit('formCustom')">{{I18n.person[3]}}</Button>
                                 </FormItem>
                             </Form>
                         </TabPane>
@@ -54,7 +54,7 @@ export default {
     data(){
         const validatePass = (rule, value, callback) => {
                 if (value === '') {
-                    callback(new Error('请输入新密码'));
+                    callback(new Error(this.$i18nMsg().tips.person[0]));
                 } else {
                     if (this.formCustom.passwdCheck !== '') {
                         // 对第二个密码框单独验证
@@ -65,16 +65,16 @@ export default {
             };
             const validatePassCheck = (rule, value, callback) => {
                 if (value === '') {
-                    callback(new Error('请再次输入新密码'));
+                    callback(new Error(this.$i18nMsg().tips.person[1]));
                 } else if (value !== this.formCustom.newPwd) {
-                    callback(new Error('两次输入密码不一样'));
+                    callback(new Error(this.$i18nMsg().tips.person[2]));
                 } else {
                     callback();
                 }
             };
             const validateSerialNumber = (rule, value, callback) => {
                 if (value.length  !== 12) {
-                    callback(new Error('请输入正确的设备序列号'));
+                    callback(new Error(this.$i18nMsg().tips.person[3]));
                 } else{
                     callback();
                 } 
@@ -93,21 +93,21 @@ export default {
                 },
                 ruleSerialNumber: {
                     serialNumber: [
-                        { required: true, message: '请输入设备序列号', trigger: 'blur' },
+                        { required: true, message: this.$i18nMsg().tips.person[4], trigger: 'blur' },
                         { validator: validateSerialNumber, trigger: 'blur' }
                     ],
                 },
                 ruleCustom: {
                     newPwd: [
-                    { required: true, message: '请输入新密码', trigger: 'blur' },
+                    { required: true, message: this.$i18nMsg().tips.person[5], trigger: 'blur' },
                         { validator: validatePass, trigger: 'blur' }
                     ],
                     passwdCheck: [
-                        { required: true, message: '请再次输入新密码', trigger: 'blur' },
+                        { required: true, message:this.$i18nMsg().tips.person[1], trigger: 'blur' },
                         { validator: validatePassCheck, trigger: 'blur' }
                     ],
                     oldPwd: [
-                        { required: true, message: '请输入密码', trigger: 'blur' }
+                        { required: true, message: this.$i18nMsg().tips.person[0], trigger: 'blur' }
                     ]
                 }
             }
@@ -133,7 +133,7 @@ export default {
                     let result = await user.changePassword(data)
                     this.loading = false
                     if(result && result.errCode === 1){
-                        this.$Message.success('密码修改成功');
+                        this.$Message.success(this.I18n.tips.person[3]);
                         removeToken()
                         this.$router.push('/login')
                     }

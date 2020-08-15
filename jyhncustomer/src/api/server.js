@@ -1,4 +1,5 @@
 //带Token请求
+import Vue from 'vue'
 import axios from 'axios';
 import {getToken} from '@/utils/storage.js'
 import iview from 'view-design';
@@ -43,11 +44,21 @@ const httpRequest = (opts,data) => {
                             router.push("/login")
                             return;
                         default:
-                            iview.Notice.error({
-                                title:result.errCode ,
-                                desc: result.errMsg,
-                                duration:2
-                            });
+                            let locale = window.localStorage.getItem('user_lang') == null ? "cn" : window.localStorage.getItem('user_lang')    // 语言标识
+                            let i18n = Vue.prototype._i18n.messages[locale]
+                            let errMsg0 = i18n.errMsg0
+                            errMsg0.forEach(res=>{
+                                if(res.code === result.errCode){
+                                    console.log(res)
+                                    iview.Notice.error({
+                                        title:result.errCode ,
+                                        desc: res.errMsg,
+                                        duration:2
+                                    });
+                                }
+                                
+                            })
+                            
                             break;
                     }
 				}

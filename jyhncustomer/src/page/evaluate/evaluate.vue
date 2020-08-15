@@ -3,19 +3,19 @@
         <Row>
             <Col :xs="24" :sm="10" :md="8" :lg="6"  class="left">
                 <div>
-                    <Card-person title="反馈" :userMsg="userMsg" :showback="false"></Card-person>
+                    <Card-person :title="I18n.feedback[10]" :userMsg="userMsg" :showback="false"></Card-person>
                 </div>
             </Col>
             <Col :xs="24" :sm="14" :md="16" :lg="18" class="right">
                <div class="content">
                     <div class="file">
-                        <span>评分 : </span>
+                        <span>{{I18n.evaluate[0]}} : </span>
                         <div class="content-back">
                             <Rate v-model="score" :disabled="Boolean(evaluate.score)"/>
                         </div>
                     </div>
                     <div class="file" v-if="evaluate.id">
-                        <span>评价 : </span>
+                        <span>{{I18n.evaluate[1]}} : </span>
                         <div class="content-back">
                             <ul class="concat">
                                 <li v-for="(item,index) in evaluate.comment">
@@ -25,17 +25,17 @@
                         </div>
                     </div>
                     <div class="file">
-                        <span>回复 : </span>
+                        <span>{{I18n.evaluate[2]}} : </span>
                         <div class="ipt" >
-                            <Input v-model="comment" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入反馈内容" />
+                            <Input v-model="comment" type="textarea" :autosize="{minRows: 2,maxRows: 5}" :placeholder="I18n.evaluate[4]" />
                         </div>
                     </div>
                     <ul class="file">
                         <li class="btn">
-                            <Button type="primary" @click="playSaveCustomerScore" :loading="loading">{{evaluate.id?"回复":"提交"}}</Button>
+                            <Button type="primary" @click="playSaveCustomerScore" :loading="loading">{{evaluate.id?I18n.evaluate[2]:I18n.evaluate[3]}}</Button>
                         </li>
                         <li class="btn">
-                            <Button type="primary"  @click="cancelText">取消</Button>
+                            <Button type="primary"  @click="cancelText">{{I18n.evaluate[5]}}</Button>
                         </li>
                     </ul>
                </div>
@@ -72,8 +72,8 @@ export default {
                 let _this = this;
                 if(!status){
                     this.$Modal.warning({
-                        title: '提示',
-                        content: '暂未绑定设备,请先绑定设备',
+                        title:  this.I18n.tips.evaluate[0],
+                        content:  this.I18n.tips.evaluate[1],
                         onOk:function(){
                             _this.$router.push("/person")
                         }
@@ -104,7 +104,7 @@ export default {
         async evaluateBack(id){//回复
             if(!this.comment){
                 this.$Message.success({
-                    content: "请填写评价内容",
+                    content:  this.I18n.tips.evaluate[2],
                     duration: 4
                 });
                 return
@@ -114,7 +114,7 @@ export default {
             this.loading = false
             if(result && result.errCode === 1){
                 this.$Message.success({
-                    content: "提交成功",
+                    content: this.I18n.tips.evaluate[5],
                     duration: 4
                 });
                 this.comment = "";
@@ -129,13 +129,13 @@ export default {
             console.log(this.evaluate)
             if(!this.comment){
                 this.$Message.success({
-                    content: "请填写评价内容",
+                    content:  this.I18n.tips.evaluate[2],
                     duration: 4
                 });
                 return
             }else if(!this.score){
                 this.$Message.error({
-                    content: "请选择评分",
+                    content: this.I18n.tips.evaluate[4],
                     duration: 4
                 });
                 return
@@ -145,7 +145,7 @@ export default {
             this.loading = false
             if(result && result.errCode === 1){
                 this.$Message.success({
-                    content: "提交成功",
+                    content: this.I18n.tips.evaluate[5],
                     duration: 4
                 });
                 this.comment = ""

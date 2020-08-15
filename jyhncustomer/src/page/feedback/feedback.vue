@@ -3,17 +3,17 @@
         <Row class="back-row">
             <Col :xs="24" :sm="10" :md="8" :lg="6"  class="left">
                 <div>
-                    <Card-person @toDetail="toDetail" @newBuilt="newBuilt" title="反馈" :userMsg="userMsg" :showback="true" :backList="backList"></Card-person>
+                    <Card-person @toDetail="toDetail" @newBuilt="newBuilt" :title=" I18n.feedback[10]" :userMsg="userMsg" :showback="true" :backList="backList"></Card-person>
                 </div>
             </Col>
             <Col :xs="24" :sm="14" :md="16" :lg="18" class="right">
                <div class="content">
                     <Row>
                         <Col :xs="24" :sm="12" :md="8" :lg="8">
-                            <span>类别 : </span>
+                            <span>{{I18n.feedback[0]}} : </span>
                             <Dropdown trigger="click" style="margin-left: 20px"  @on-click="change">
                                 <a href="javascript:void(0)">
-                                    {{feedBackDetail.type?feedBackDetail.type:checkItem.type?checkItem.type:'请选择类别'}}
+                                    {{feedBackDetail.type?feedBackDetail.type:checkItem.type?checkItem.type:I18n.feedback[1]}}
                                     <Icon type="ios-arrow-down"></Icon>
                                 </a>
                                 <DropdownMenu slot="list" v-if="!backUuid">
@@ -22,18 +22,18 @@
                             </Dropdown>
                         </Col>
                         <Col :xs="24" :sm="12" :md="8" :lg="8" v-if="backUuid">
-                            <span>日期 : </span>
+                            <span>{{I18n.feedback[2]}} : </span>
                             <span>{{feedBackDetail.createTime}}</span>
                         </Col>
                         <Col  :xs="24" :sm="12" :md="8" :lg="8" v-if="backUuid">
-                            <span>状态 : </span>
-                            <span>{{feedBackDetail.backStatus?'已解决':'待解决'}}</span>
+                            <span>{{I18n.feedback[3]}} : </span>
+                            <span>{{feedBackDetail.backStatus?I18n.feedback[4]:I18n.feedback[5]}}</span>
                         </Col>
                     </Row>
                     <div class="file">
-                        <div>附件 : </div>
+                        <div>{{I18n.feedback[6]}} : </div>
                         <div class="upload-photo">
-                            <div style="text-align:left;padding-bottom:10px;">图片</div>
+                            <div style="text-align:left;padding-bottom:10px;">{{I18n.feedback[7]}}</div>
                             <div style="overflow: hidden;" >
                                 <div class="demo-upload-list" v-for="item in uploadList">
                                     <template>
@@ -66,7 +66,7 @@
                                     </div>
                                 </Upload>
                             </div>
-                            <div style="text-align:left;padding: 10px 0;">视频</div>
+                            <div style="text-align:left;padding: 10px 0;">{{I18n.feedback[8]}}</div>
                             <Upload
                                 v-if="!backUuid"
                                 name="video"
@@ -75,7 +75,7 @@
                                 :on-format-error="handleFormatVideoError"
                                 :format="['avi','mp4','rmvb','MOV']"
                                 :action="action1">
-                                <Button icon="ios-cloud-upload-outline">选择视频文件上传</Button>
+                                <Button icon="ios-cloud-upload-outline">{{I18n.feedback[9]}}</Button>
                             </Upload>
                             <div v-if="file !== null">{{ file.name }}</div>
                             <div v-if="backUuid && feedBackDetail.videoUrl" class="video" >
@@ -85,15 +85,15 @@
                         
                     </div>
                     <div class="file" v-if="feedBackDetail.backUuid">
-                        <span>反馈 : </span>
+                        <span>{{I18n.feedback[10]}} : </span>
                         <div class="content-back">
                             <ul class="message-concat">
-                                <li :key="index" v-for="(item,index) in feedBackDetailChat" :style="{listStyle:'none',textAlign:item.backName === '客服'?'right':'left'}" :class="[item.backName === '客服'?'right':'left']">
-                                    <h4 v-if="item.backName === '客服'">
+                                <li :key="index" v-for="(item,index) in feedBackDetailChat" :style="{listStyle:'none',textAlign:item.backName === I18n.feedback[11]?'right':'left'}" :class="[item.backName === I18n.feedback[11]?'right':'left']">
+                                    <h4 v-if="item.backName === I18n.feedback[11]">
                                         <span :style="{color:'#ccc',fontWeight:200,fontSize:'14px'}">{{item.backTime}} : </span>
                                         <span>{{item.backName}}</span>
                                     </h4>
-                                    <h4  v-if="item.backName !== '客服'">
+                                    <h4  v-if="item.backName !== I18n.feedback[11]">
                                         <span>{{item.backName}}</span>
                                         <span style="color:'#ccc';font-weight:200;font-size:'14px'">{{item.backTime}} : </span>
                                     </h4>
@@ -103,7 +103,7 @@
                         </div>
                     </div>
                     <div class="file" v-if="!feedBackDetail.backStatus">
-                        <span>回复 : </span>
+                        <span>{{I18n.feedback[12]}} : </span>
                         <div class="ipt">
                             <Input v-model="textVal" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入反馈内容" />
                         </div>
@@ -111,24 +111,24 @@
                     <ul class="file">
                         <li class="btn">
                             <Button type="primary" :loading="loading" :disabled="Boolean(feedBackDetail.backStatus)" @click="playCustomerBack">
-                                <span v-if="!loading">{{feedBackDetail.backUuid?'回复':'提交'}}</span>
+                                <span v-if="!loading">{{feedBackDetail.backUuid?I18n.feedback[12]:I18n.feedback[15]}}</span>
                                 <span v-else>Loading...</span>
                             </Button>
                         </li>
                         <li class="btn">
                             <Button type="primary" :loading="loading1" :disabled="Boolean(feedBackDetail.backStatus)" @click="Resolved">
-                                <span v-if="!loading1">已解决</span>
+                                <span v-if="!loading1">{{I18n.feedback[4]}}</span>
                                 <span v-else>Loading...</span>
                             </Button>
                         </li>
                         <li class="btn" v-if="!Boolean(feedBackDetail.backStatus)">
-                            <Button type="primary">取消</Button>
+                            <Button type="primary">{{I18n.feedback[16]}}</Button>
                         </li>
                     </ul>
                </div>
             </Col>
         </Row>
-        <Modal title="图片预览" v-model="visible">
+        <Modal :title="I18n.feedback[17]" v-model="visible">
             <img :src="imgName" v-if="visible" style="width: 100%">
         </Modal>
     </div>
@@ -164,13 +164,13 @@ export default {
         }
     },
     methods: {
-        async Resolved(){//已解决
+        async Resolved(){//{{I18n.feedback[4]}}
             this.loading1 = true
             let backUuid = this.feedBackDetail.backUuid
             let result = await back.serviceResolved({backUuid,})
             this.textVal = ""
             this.loading1 = false
-            if(result && result.errCode){
+            if(result && result.errCode === 1){
                 this.getFeedBackDetail(backUuid)
             }
         },
@@ -184,7 +184,7 @@ export default {
             const check = this.Video.videoUrl?true:false;
             if (check) {
                 this.$Notice.warning({
-                    title: '只能上传一个视频'
+                    title: this.I18n.tips.feedback[0]
                 });
             }
             return !check;
@@ -228,7 +228,7 @@ export default {
                 console.log(this.uploadList)
             }else{
                 this.$Notice.warning({
-                    title: '提示',
+                    title:  this.I18n.tips.feedback[1],
                     desc: res.errMsg
                 })
             }
@@ -236,21 +236,21 @@ export default {
         },
         handleFormatError (file) {//文件格式验证失败
             this.$Notice.warning({
-                title: '文件格式不正确',
-                desc: '上传文件' + file.name + '不正确,请选择 jpg 或者 png.'
+                title: this.I18n.tips.feedback[2],
+                desc: this.I18n.tips.feedback[3]+ file.name +  this.I18n.tips.feedback[4]
             });
         },
         handleFormatVideoError (file) {//文件格式验证失败
             this.$Notice.warning({
-                title: '文件格式不正确',
-                desc: '上传文件' + file.name + '不正确, 请选择 mp4/avi/rmvb'
+                title:  this.I18n.tips.feedback[2],
+                desc: this.I18n.tips.feedback[3]+ file.name +  this.I18n.tips.feedback[5]
             });
         },
         handleMaxSize (file) {//限制大小
             console.log(file,'file')
             this.$Notice.warning({
-                title: '文件大小超出限制',
-                desc: '上传' + file.name + '文件太大, 请低于1M'
+                title:  this.I18n.tips.feedback[6],
+                desc:  this.I18n.tips.feedback[7] + file.name + this.I18n.tips.feedback[8]
             });
         },
         handleBeforeUpload () {//上传之前
@@ -291,7 +291,7 @@ export default {
             this.loading = false
             if(result && result.errCode === 1){
                 this.$Message.success({
-                    content: '提交成功',
+                    content: this.I18n.tips.feedback[9],
                     duration: 4
                 });
                 console.log(result.data,'result.data')
@@ -307,7 +307,7 @@ export default {
             }
             if(!this.textVal){
                 this.$Message.warning({
-                    content: '请输入反馈内容',
+                    content:this.I18n.tips.feedback[10],
                     duration: 4
                 });
                 this.loading = false
@@ -318,7 +318,7 @@ export default {
             this.loading = false
             if(result && result.errCode){
                 this.$Message.success({
-                    content: "回复成功",
+                    content:this.I18n.tips.feedback[11],
                     duration: 4
                 });
                 this.getFeedBackDetail(id)
@@ -366,8 +366,8 @@ export default {
                 let _this = this;
                 if(!status){
                     this.$Modal.warning({
-                        title: '提示',
-                        content: '暂未绑定设备,请先绑定设备',
+                        title: this.I18n.tips.feedback[1],
+                        content:this.I18n.tips.feedback[12],
                         onOk:function(){
                             _this.$router.push("/person")
                         }
